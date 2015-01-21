@@ -10,8 +10,8 @@
 import sys
 
 # Skriv inn fullt navn på gruppemedlemene (erstatte '-' med navn slikt 'Kari Trå')
-gruppe = {  'student1': '-', \
-			'student2': '-', \
+gruppe = {  'student1': 'Andreas Kjærner-Semb', 
+            'student2': '-', \
             'student3': '-', \
 }
 
@@ -28,8 +28,15 @@ gruppe = {  'student1': '-', \
 #    \_ /_/
 #    (./
 #     '` 
-def ascii_bird():
-	pass
+def ascii_fugl():
+    print  "     \/_"
+    print  "\,   /( ,/"
+    print  " \\\' ///"
+    print  "  \_ /_/"
+    print  "  (./"
+    print  "   '`"
+
+ascii_fugl()
 
 # 
 #  Oppgave 2
@@ -40,8 +47,17 @@ def ascii_bird():
 #					1 AND 1 gir 1, 1 AND 0 gir 0 og 0 AND 1 gir 0 => 100 binært
 #					er 4 desimalt. Antagelse: posisjonsbasert tallsystem og 
 #					den mest signifikante bit-en er lengst til venstre
+
+
+# Hva gjør den? Den ser på binærtallene (110 osv) og
+# sammenlikner om de har en binær-plassering hvor begge har 1.
+# Derfor får vi 4 av (6, 5) fordi 2-tallsystemversjonen av 6 og 5 har
+# begge 1 på tredje plass, eller 1 * 2 ^ 2 = 4
 def bitAnd(x, y):
-	pass
+	i = (x & y)
+    		print i
+    
+bitAnd(5, 3)
 
 
 #
@@ -49,16 +65,35 @@ def bitAnd(x, y):
 #    bitXor - x^y
 #    Eksempel: bitXor(4, 5) = 1
 #
+
+# Hva gjør den? Sammenlikner for å se om binærtallene
+# der kun en av de har 1 på en plassering mens den andre har 0.
+# Derfor blir (4, 5) = 1 fordi 4 = 100 og 5 = 101, dermed ser vi at
+# det kun er 101 (5) som har et ettall på den første plassen (høyre).
 def bitXor(x, y):
-	pass
+	i = x ^ y
+		print i
+
+bitXor(4, 5)
+
 
 #
 #  Oppgave 4
 #    bitOr - x|y
 #    Eksempel: bitOr(0, 1) = 1
-#
+
+
+# Hva gjør den? Den ser om en ELLER begge binærtallene har
+# 1 på en av plasseringene, og vi får et 1-tall på tilsvarende 
+# plassering HVIS en av de har 1. Hvis begge tallene har 0 på en 
+# plassering får vi 0. Derfor blir (0, 1) = 1 fordi mens 0 har 0 på 
+# første plassen, har 1 tilsvarende 1 på første plassen.
 def bitOr(x, y):
-	pass
+	i = x | y
+		print i
+
+bitOr(0, 1)
+
 
 #
 #  Oppgave 5
@@ -69,6 +104,8 @@ def bitOr(x, y):
 #    For å formattere 6 i ti-tallssystemet til 00000110 i to-tallssystemet
 #      '{0:08b}'.format(6)
 #      00000110
+
+# obs viktig å huske den lille b'en etter 8, for binært.
 #
 #    Formatteringsstrengen forklart:
 #      {} setter en variabel inn i strengen
@@ -81,8 +118,20 @@ def bitOr(x, y):
 #	 Forklar resultatet ascii8Bin('å')
 #	 Hvilke faktorer påvirker resultatet? Forklar.
 #
+
+#    Svar: Resultatet med 'å' er at den sender tilbakemelding om å ha 
+#          funnet en string med 2 bokstaver i lengde, og ikke 1.
+#          Hvorfor gjør den det? Det er fordi ascii 8 bin vil si at den 
+#          bruker 8 binærtall, med andre ord er 128 det høyeste tallet 
+#          man får i en bit. Dermed blir Å som er nummer 143 satt sammen
+#          av 2 bits, og derfor tolker den det som 'string of 2'
 def ascii8Bin(letter):
-	pass
+    
+    i = ord(letter)
+    	print i
+	
+ascii8Bin('A')
+
 
 # 
 #  Oppgave 6
