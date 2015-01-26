@@ -126,9 +126,8 @@ bitOr(0, 1)
 #          man får i en bit. Dermed blir Å som er nummer 143 satt sammen
 #          av 2 bits, og derfor tolker den det som 'string of 2'
 def ascii8Bin(letter):
-    
-    i = ord(letter)
-    	print i
+	i = ord(letter)
+    print '{0:08b}'.format(i)	#.format formaterer tallet
 	
 ascii8Bin('A')
 
@@ -143,11 +142,19 @@ ascii8Bin('A')
 #	 Forklart hver linje i denne funksjonen (hva er list, hva gjør in)
 #	 Skriv selv inn tester ved å bruke assert i funksjonen test()
 #
-def transferBin(string): 
+#
+# Tar en string som argument. Lager en liste av string, collection med
+# variabelen l. Deretter kjører den en for loop som gjør noe med
+# hvert objekt c i liste l. For hver c (bokstav) i list l (ordet).
+# Ordet er selve listen, første bokstav på [0] osv.
+# Deretter kjører den metoden ascii8Bin på det objektet c som er hentet
+# fra listen nå.
+def transferBin(string):
+	print "Den binære representasjonen for %r" % string
 	l = list(string)
 	for c in l:
-		# skriv ut den binære representasjon av hvert tegn (bruk ascii8Bin funksjonen din)
-		print "Den binære representasjonen for %s" % c
+		ascii8Bin(c)	# variabelen c viser til en bokstav.
+		
 
 #
 #  Oppgave 7
@@ -157,17 +164,54 @@ def transferBin(string):
 #					med 2 heksadesimale tegn
 #    Skriv selv inn tester ved å bruke assert i funksjonen test()
 #  
+
+def ascii2Hex(letter)
+	i = ord(letter)
+	# gjør om integeren i variabelen i til hexadesimal med 2 tegn. A blir for
+	# eksempel 0x41. %x konverterer det til hexadesimal. Man kan også bruke
+	# hex(tall). 02 betyr at den legger på nullere om det trengs, og at den skriver
+	# det ut med minst 2 tegn. Konverteringen fungerer slik at man tar et
+	# hexadesimalt tegn, xFF for eksempel, og ganger. F tilsvarer 15 i titallssystemet.
+	# (15*16^1) + (15*16^0) = 15*16 + 15*1 = 240 + 15 = 255.
+	print '0x%02X' % i
+
+
 def transferHex(string):
+	print "Den heksadesimale representasjonen for %s" % string
 	l = list(string)
 	for c in l:
-		print "Den heksadesimale representasjonen for %s" % c
+		ascii2Hex(c)
+
+transferHex('hei')
 
 #
 # Oppgave 8
 # 		Implementer en funksjon unicodeBin, som kan behandle norske bokstaver
 # 		Kravspesifikasjon for denne funksjonen er den samme som for ascii8Bin funksjonen
+# 
+# kjører bytearray-metoden på parameter, for å hente hvilke bits som representerer tegnet,
+# for eksempel /xe5/xa4. Deretter sjekkes det om tegnet faktisk er representert med flere
+# enn en bit. Hvis så er tilfelle henter den ut hver representasjon av tegnet i array
+# og konverterer det til binærtall med "{0:08b} ".format(char). Tallene kommer på samme linje
+# og den setter et mellomrom til neste bit.
+#
+#
 def unicodeBin(character):
-	pass	
+
+    outstr = ""
+    unicode_char = bytearray(character)
+    
+    if len(unicode_char) > 1:
+        for char in bytearray(unicode_char):
+            outstr += "{0:08b} ".format(char)
+    
+    else:
+        outstr = "{0:08b}".format(unicode_char)
+    
+    return outstr
+
+unicodeBin('å')
+	
 
 #
 # Oppgave 9
@@ -187,8 +231,19 @@ def unicodeBin(character):
 #	Kan dere skrive en test for denne funksjonen?
 #	Hvilke andre muligheter har man for å finne informasjon om maskinvare i GNU/Linux?
 #
+# Psutil sjekker ikke hardware på den måten at den viser slikt som RAM eller modell
+# eller operativsystem. Den viser prosesser som kjører og systemforbruk/bruk på
+# datamaskinen der og da.
+#
 def printSysInfo():
-	pass
+	# printer ut cpu-bruken i prosent
+	psutil.cpu_percent(interval=3)
+	# printer ut antall cpu'er, inklusive virtuelle.
+	psutil.cpu_count()
+	psutil.disk_usage('/')
+
+# man kan bruke "sudo lshw -short" i GNU/Linux, eller "free -m" for å se RAM-bruk
+# eller inxi for å få opp en oversiktlig oversikt.
 
 
 def test():
