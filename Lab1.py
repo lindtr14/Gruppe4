@@ -12,7 +12,8 @@ import sys
 # Skriv inn fullt navn på gruppemedlemene (erstatte '-' med navn slikt 'Kari Trå')
 gruppe = {  'student1': 'Andreas Kjærner-Semb', 
             'student2': 'Linda Tran', \
-            'student3': '-', \
+            'student3': 'Frank William Hansen', \
+            'student4':
 }
 
 #
