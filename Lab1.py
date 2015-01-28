@@ -13,7 +13,7 @@ import sys
 gruppe = {  'student1': 'Andreas Kjærner-Semb', 
             'student2': 'Linda Tran', \
             'student3': 'Frank William Hansen', \
-            'student4':
+            'student4': 'Ole Aarsnes', \
 }
 
 #
