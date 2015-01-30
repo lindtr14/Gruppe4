@@ -1,6 +1,6 @@
-Roman Numerals
 # -*- coding: utf-8 -*-
 
+# Roman Numerals
 romanNumeralMap = (('M', 1000),
                    ('CM', 900),
                    ('D',  500),
