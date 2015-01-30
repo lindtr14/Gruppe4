@@ -14,6 +14,7 @@ gruppe = {  'student1': 'Andreas Kjærner-Semb',
             'student2': 'Linda Tran', \
             'student3': 'Frank William Hansen', \
             'student4': 'Ole Aarsnes', \
+            'student5': 'Mikael Kile', \
 }
 
 #
