@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import re
+
 # Roman Numerals
 romanNumeralMap = (('M', 1000),
                    ('CM', 900),
