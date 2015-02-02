@@ -92,3 +92,36 @@ index = 0
             result += integer
             index += len(numeral)
     return result
+    
+# Addisjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter addisjon og gjør om
+# svaret til romertall igjen
+
+def additionRoman(x, y):
+    a = fromRoman(x)
+    b = fromRoman(y)
+    
+    c = a + b 
+    d = toRoman(c)
+    return d
+
+# Subtraksjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter subtraksjon og gjør om
+# svaret til romertall igjen
+    
+def subtractionRoman(x, y):
+    a = fromRoman(x)
+    b = fromRoman(y)
+    
+    c = a - b 
+    d = toRoman(c)
+    return d
+
+# Multiplikasjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter multiplikasjon og gjør om
+# svaret til romertall igjen
+
+def multiplicationRoman(x, y):
+    a = fromRoman(x)
+    b = fromRoman(y)
+    
+    c = a * b 
+    d = toRoman(c)
+    return d
