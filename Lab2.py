@@ -93,6 +93,8 @@ index = 0
             index += len(numeral)
     return result
     
+# ENKLE MATTEFUNKSJONER
+    
 # Addisjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter addisjon og gjør om
 # svaret til romertall igjen
 
@@ -125,3 +127,49 @@ def multiplicationRoman(x, y):
     c = a * b 
     d = toRoman(c)
     return d
+    
+# VANSKELIGE MATTEFUNKSJONER
+
+def romanAddition(x, y):
+    
+    
+    suby1 = y.replace("CM", "DCCCC")
+    suby2 = suby1.replace("CD", "CCCC")
+    suby3 = suby2.replace("XC", "LXXXX")
+    suby4 = suby3.replace("XL", "XXXX")
+    suby5 = suby4.replace("IX", "VIIII")
+    suby6 = suby5.replace("IV", "IIII")
+    
+    subx1 = x.replace("CM", "DCCCC")
+    subx2 = subx1.replace("CD", "CCCC")
+    subx3 = subx2.replace("XC", "LXXXX")
+    subx4 = subx3.replace("XL", "XXXX")
+    subx5 = subx4.replace("IX", "VIIII")
+    subx6 = subx5.replace("IV", "IIII")
+
+    result = ""
+    add = subx6 + suby6
+    result += add
+    
+    valueOrder = "MDCLXVI"
+    sortingList = sorted(result, key=valueOrder.index)
+    
+
+    
+    str1 = ''.join(sortingList)
+    
+    tmp1 = str1.replace("IIIII", "V")
+    tmp2 = tmp1.replace("VV", "X")
+    tmp3 = tmp2.replace("XXXXX", "L")
+    tmp4 = tmp3.replace("LL", "C")
+    tmp5 = tmp4.replace("CCCCC", "D")
+    tmp6 = tmp5.replace("DD", "M")
+    
+    tmp7 = tmp6.replace("VIIII", "IX")
+    tmp8 = tmp7.replace("IIII", "IV")
+    tmp9 = tmp8.replace("XXXX", "XL")
+    tmp10 = tmp9.replace("LXXXX", "XC")
+    tmp11 = tmp10.replace("CCCC", "CD")
+    tmp12 = tmp11.replace("DCCCC", "CM")
+    
+    return tmp12
