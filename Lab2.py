@@ -132,7 +132,7 @@ def multiplicationRoman(x, y):
 
 def romanAddition(x, y):
     
-    
+# Gjør om parameterene (x og y) til lange romertall    
     suby1 = y.replace("CM", "DCCCC")
     suby2 = suby1.replace("CD", "CCCC")
     suby3 = suby2.replace("XC", "LXXXX")
@@ -147,10 +147,13 @@ def romanAddition(x, y):
     subx5 = subx4.replace("IX", "VIIII")
     subx6 = subx5.replace("IV", "IIII")
 
+# resultat = string
+# legger sammen parameterene til en
     result = ""
     add = subx6 + suby6
     result += add
-    
+
+# Sorterer med verdien høyest fra venstre til høyre
     valueOrder = "MDCLXVI"
     sortingList = sorted(result, key=valueOrder.index)
     
@@ -158,6 +161,7 @@ def romanAddition(x, y):
     
     str1 = ''.join(sortingList)
     
+# gjør om lange romertall til ordinære romertall
     tmp1 = str1.replace("IIIII", "V")
     tmp2 = tmp1.replace("VV", "X")
     tmp3 = tmp2.replace("XXXXX", "L")
@@ -171,5 +175,85 @@ def romanAddition(x, y):
     tmp10 = tmp9.replace("LXXXX", "XC")
     tmp11 = tmp10.replace("CCCC", "CD")
     tmp12 = tmp11.replace("DCCCC", "CM")
+    
+    return tmp12
+    
+def romanSubtraction(x, y):
+                   
+# Gjør om parameterene (x og y) til et lengre romertall
+    suby1 = y.replace("CM", "DCCCC")
+    suby2 = suby1.replace("CD", "CCCC")
+    suby3 = suby2.replace("XC", "LXXXX")
+    suby4 = suby3.replace("XL", "XXXX")
+    suby5 = suby4.replace("IX", "VIIII")
+    suby6 = suby5.replace("IV", "IIII")
+    suby7 = suby6.replace("M", "DD")
+    suby8 = suby7.replace("D", "CCCCC")
+    suby9 = suby8.replace("C", "LL")
+    suby10 = suby9.replace("L", "XXXXX")
+    suby11 = suby10.replace("X", "VV")
+    suby12 = suby11.replace("V", "IIIII")
+    
+    subx1 = x.replace("CM", "DCCCC")
+    subx2 = subx1.replace("CD", "CCCC")
+    subx3 = subx2.replace("XC", "LXXXX")
+    subx4 = subx3.replace("XL", "XXXX")
+    subx5 = subx4.replace("IX", "VIIII")
+    subx6 = subx5.replace("IV", "IIII")
+    subx7 = subx6.replace("M", "DD")
+    subx8 = subx7.replace("D", "CCCCC")
+    subx9 = subx8.replace("C", "LL")
+    subx10 = subx9.replace("L", "XXXXX")
+    subx11 = subx10.replace("X", "VV")
+    subx12 = subx11.replace("V", "IIIII")
+    
+ # Legger hver bokstav i x og y i en liste
+    charX = []
+    for string in subx12:
+        for char in string:
+            charX.append(char)
+                
+    charY = []
+    for string in suby12:
+        for char in string:
+            charY.append(char)
+            
+ # For hver bokstav i listene, fjern bokstav               
+    for char in charX[:]:
+        if char in charY:
+            charX.remove(char)
+            charY.remove(char)
+
+# Gjør om resultatet til string
+    result = ""
+    
+    sub1 = ''.join(charX)
+    sub2 = ''.join(charY)
+    
+    sub = sub1 + sub2
+    result += sub
+    
+# Sorterer listen i en rekkefølge hvor høyest verdi er fra venstre mot høyre
+    valueOrder = "MDCLXVI"
+    sortingList = sorted(result, key=valueOrder.index)
+    
+
+    
+    str1 = ''.join(sortingList)
+    
+# Gjør om lange romertall til "vanlig"/ordinær romertall
+    tmp1 = str1.replace("IIIII", "V")
+    tmp2 = tmp1.replace("VV", "X")
+    tmp3 = tmp2.replace("XXXXX", "L")
+    tmp4 = tmp3.replace("LL", "C")
+    tmp5 = tmp4.replace("CCCCC", "D")
+    tmp6 = tmp5.replace("DD", "M")
+    
+    tmp7 = tmp6.replace("VIIII", "IX")
+    tmp8 = tmp7.replace("IIII", "IV")
+    tmp9 = tmp8.replace("LXXXX", "XC")
+    tmp10 = tmp9.replace("XXXX", "XL")
+    tmp11 = tmp10.replace("DCCCC", "CM")
+    tmp12 = tmp11.replace("CCCC", "CD")
     
     return tmp12
