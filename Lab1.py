@@ -57,7 +57,7 @@ ascii_fugl()
 # begge 1 på tredje plass, eller 1 * 2 ^ 2 = 4
 def bitAnd(x, y):
 	i = (x & y)
-    		print i
+    	print i
     
 bitAnd(5, 3)
 
@@ -74,7 +74,7 @@ bitAnd(5, 3)
 # det kun er 101 (5) som har et ettall på den første plassen (høyre).
 def bitXor(x, y):
 	i = x ^ y
-		print i
+	print i
 
 bitXor(4, 5)
 
@@ -92,7 +92,7 @@ bitXor(4, 5)
 # første plassen, har 1 tilsvarende 1 på første plassen.
 def bitOr(x, y):
 	i = x | y
-		print i
+	print i
 
 bitOr(0, 1)
 
