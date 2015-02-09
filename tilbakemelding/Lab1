@@ -1,0 +1,72 @@
+Kommentar til tekstbesvarelse. 
+Ingen besvarelse innen fristen?
+Spørsmålene var:
+- operatørprioritet in Python (http://docs.python.org/2/reference/expressions.html#operator-precedence)
+- one’s complement (http://en.wikipedia.org/wiki/Ones'_complement)
+- pass er et reservert ord i Python, hva er dets funksjon?
+- finn ut hva hver eneste linje av kode betyr og beskriv det i besvarelsen (dette har dere delvis gjort)
+
+
+
+Kommentar til koden "Lab1.py"
+
+Oppgave 1
+ascii_bird, - det er noen mindre avvik, som bør fikses.
+Si litt om hva som måtte fikses.
+
+Det dere skriver ut
+     \/_
+\,   /( ,/
+ \' ///
+  \_ /_/
+  (./
+   '`
+Det som skulle skrives ut:
+#       \/_
+#  \,   /( ,/
+#   \\\' ///
+#    \_ /_/
+#    (./
+#     '` 
+
+
+Oppgave 2
+Istedenfor å teste funksjonen rett under implementasjonen "bitAnd(5, 3)", bør dette legges inn i test() funksjonen og testes vha assert-setningen.
+Grunnen til det er at man skriver funksjoner med tanke på at andre kan anvende de som en python-modul. Når jeg bruker import på deres fil, får jeg mange linjer med utskrift, som jeg ikke ønsker eller trenger. Testing er for programmerere, ikke brukere. Hvis man legger alle tester i en funksjon test(), kan men enkelt kommentere den ut når man distribuerer modulen til brukere "#test()".
+
+Man bør ikke legge print-setninger "print i" inn i funksjoner. Print er noe man kan gjøre på returverdier, som funksjonen eventuelt returnerer.
+
+Bra at dere kommenterer i koden om hva funksjonen gjør.
+Det hadde vært bra hvis dere kunne brukt dere eget eksempel "bitAnd(5, 3)" når dere forklarer funksjonen.
+
+Oppgave 3
+Se kommentar for Oppgave 2
+
+Oppgave 4
+Se kommentar for Oppgave 2
+
+Oppgave 5
+Forstår ikke helt forklaringen angående "å".
+I hvilken kodetabell er "Å" nummer 143?
+Er det 128 desimalt som man kan presentere med 8 bits? Forklar.
+Er det vanlig å si at et tegn er to bokstaver i lengde i forbindelse med dets digitale representasjon?
+
+
+Oppgave 6
+OK.
+
+Oppgave 7
+Her var det en feil i deres kode. Fiks den på GitHub. 
+Ellers OK.
+Test burde legges inn i test() funksjonen og ikke direkte etter funksjonsimplementasjonen.
+
+Oppgave 8
+En bra løsning. 
+Sjekk om denne funksjonen fungerer med vanlige ascii tegn. 
+Forklar og fiks koden, hvis nødvendig.
+
+Oppgave 9
+Ok. 
+Dere kunne se om det fantes noen Python moduler som hadde funksjonalitet for å få tak i den spesifikke informasjonen (i oppgaveteksten).
+Det finnes en spesifikk mappe i Unix/Linux systemer som inneholder det meste av den forespurte informasjonen. 
+Hvilken mappe er det?
