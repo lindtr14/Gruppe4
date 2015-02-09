@@ -32,12 +32,13 @@ gruppe = {  'student1': 'Andreas Kjærner-Semb',
 #    (./
 #     '` 
 def ascii_fugl():
-    print  "     \/_"
-    print  "\,   /( ,/"
-    print  " \\\' ///"
-    print  "  \_ /_/"
-    print  "  (./"
-    print  "   '`"
+    print"#       \/
+    print"#       \/_"
+    print"#  \,   /( ,/"
+    print"#   \\\\\\' ///"
+    print"#    \_ /_/"
+    print"#    (./"
+    print"#     '`"
 
 ascii_fugl()
 
