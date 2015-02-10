@@ -32,7 +32,7 @@ gruppe = {  'student1': 'Andreas Kjærner-Semb',
 #    (./
 #     '` 
 def ascii_fugl():
-    print"#       \/
+    print"#       \/"
     print"#       \/_"
     print"#  \,   /( ,/"
     print"#   \\\\\\' ///"
@@ -131,7 +131,7 @@ bitOr(0, 1)
 #          av 2 bits, og derfor tolker den det som 'string of 2'
 def ascii8Bin(letter):
 	i = ord(letter)
-    print '{0:08b}'.format(i)	#.format formaterer tallet
+    	print '{0:08b}'.format(i)	#.format formaterer tallet
 	
 ascii8Bin('A')
 
@@ -169,7 +169,7 @@ def transferBin(string):
 #    Skriv selv inn tester ved å bruke assert i funksjonen test()
 #  
 
-def ascii2Hex(letter)
+def ascii2Hex(letter):
 	i = ord(letter)
 	# gjør om integeren i variabelen i til hexadesimal med 2 tegn. A blir for
 	# eksempel 0x41. %x konverterer det til hexadesimal. Man kan også bruke
