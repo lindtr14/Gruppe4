@@ -243,7 +243,7 @@ def test():
 	assert ascii8Bin('A') == '01000001'
 	# Skriv her inn passende tester for tarnsferBin og transferHex funksjoner
 	# fra oppgavene 6 og 7
-	assert transferHex('hei') == '68 65 69'
+	assert transferHex('hei') == '68 65 69 '
 	assert unicodeBin('å') == '11000011 10100101 '
 	# Dine egne tester
 	return "Testene er fullført uten feil."
