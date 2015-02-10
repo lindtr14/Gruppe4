@@ -147,7 +147,7 @@ def ascii8Bin(letter):
 # Deretter kjører den metoden ascii8Bin på det objektet c som er hentet
 # fra listen nå.
 def transferBin(string):
-	print "Den binære representasjonen for %r" % string
+	# print "Den binære representasjonen for %r" % string
 	l = list(string)
 	for c in l:
 		ascii8Bin(c)	# variabelen c viser til en bokstav.
@@ -162,24 +162,17 @@ def transferBin(string):
 #    Skriv selv inn tester ved å bruke assert i funksjonen test()
 #  
 
-def ascii2Hex(letter):
-	i = ord(letter)
-	# gjør om integeren i variabelen i til hexadesimal med 2 tegn. A blir for
-	# eksempel 0x41. %x konverterer det til hexadesimal. Man kan også bruke
-	# hex(tall). 02 betyr at den legger på nullere om det trengs, og at den skriver
-	# det ut med minst 2 tegn. Konverteringen fungerer slik at man tar et
-	# hexadesimalt tegn, xFF for eksempel, og ganger. F tilsvarer 15 i titallssystemet.
-	# (15*16^1) + (15*16^0) = 15*16 + 15*1 = 240 + 15 = 255.
-	print '0x%02X' % i
-
-
 def transferHex(string):
-	print "Den heksadesimale representasjonen for %s" % string
-	l = list(string)
-	for c in l:
-		ascii2Hex(c)
+    # print "Den heksadesimale representasjonen for %s" % string
+    outstr = ""
+    
+    ord_I_Liste = list(string)
+    for bokstav in ord_I_Liste:
+        representasjon = ord(bokstav)
+        outstr += '{0:02x} '.format(representasjon)
+        
+    return outstr
 
-transferHex('hei')
 
 #
 # Oppgave 8
@@ -250,6 +243,7 @@ def test():
 	assert ascii8Bin('A') == '01000001'
 	# Skriv her inn passende tester for tarnsferBin og transferHex funksjoner
 	# fra oppgavene 6 og 7
+	assert transferHex('hei') == '68 65 69'
 	assert unicodeBin('å') == '11000011 10100101 '
 	# Dine egne tester
 	return "Testene er fullført uten feil."
