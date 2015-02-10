@@ -59,9 +59,7 @@ ascii_fugl()
 # begge 1 på tredje plass, eller 1 * 2 ^ 2 = 4
 def bitAnd(x, y):
 	i = (x & y)
-    	print i
-    
-bitAnd(5, 3)
+    	return i
 
 
 #
@@ -76,9 +74,7 @@ bitAnd(5, 3)
 # det kun er 101 (5) som har et ettall på den første plassen (høyre).
 def bitXor(x, y):
 	i = x ^ y
-	print i
-
-bitXor(4, 5)
+	return i
 
 
 #
@@ -94,9 +90,7 @@ bitXor(4, 5)
 # første plassen, har 1 tilsvarende 1 på første plassen.
 def bitOr(x, y):
 	i = x | y
-	print i
-
-bitOr(0, 1)
+	return i
 
 
 #
@@ -131,9 +125,8 @@ bitOr(0, 1)
 #          av 2 bits, og derfor tolker den det som 'string of 2'
 def ascii8Bin(letter):
 	i = ord(letter)
-    	print '{0:08b}'.format(i)	#.format formaterer tallet
-	
-ascii8Bin('A')
+    	return '{0:08b}'.format(i)	#.format formaterer tallet
+
 
 
 # 
@@ -214,7 +207,6 @@ def unicodeBin(character):
     
     return outstr
 
-unicodeBin('å')
 	
 
 #
@@ -264,5 +256,5 @@ def test():
 
 
 # Bruk denne funksjonen for å vise at alle testene er kjørt feilfritt
-#print test()
+print test()
 		
