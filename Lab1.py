@@ -196,7 +196,7 @@ def unicodeBin(character):
             outstr += "{0:08b} ".format(char)
     
     else:
-        outstr = "{0:08b}".format(unicode_char)
+        outstr = "{0:08b}".format(ord(character))
     
     return outstr
 
@@ -245,6 +245,7 @@ def test():
 	# fra oppgavene 6 og 7
 	assert transferHex('hei') == '68 65 69 '
 	assert unicodeBin('å') == '11000011 10100101 '
+	assert unicodeBin('a') == '01100001'
 	# Dine egne tester
 	return "Testene er fullført uten feil."
 
