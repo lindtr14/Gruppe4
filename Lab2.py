@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 
-# laster inn regular expressions-modul
+    # laster inn regular expressions-modul
 import re
 
-# Roman Numerals
+    # Roman Numerals
 romanNumeralMap = (('M', 1000),
                    ('CM', 900),
                    ('D',  500),
@@ -93,10 +93,10 @@ index = 0
             index += len(numeral)
     return result
     
-# ENKLE MATTEFUNKSJONER
+    # ENKLE MATTEFUNKSJONER
     
-# Addisjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter addisjon og gjør om
-# svaret til romertall igjen
+    # Addisjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter addisjon og gjør om
+    # svaret til romertall igjen
 
 def additionRoman(x, y):
     a = fromRoman(x)
@@ -106,8 +106,8 @@ def additionRoman(x, y):
     d = toRoman(c)
     return d
 
-# Subtraksjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter subtraksjon og gjør om
-# svaret til romertall igjen
+    # Subtraksjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter subtraksjon og gjør om
+    # svaret til romertall igjen
     
 def subtractionRoman(x, y):
     a = fromRoman(x)
@@ -117,8 +117,8 @@ def subtractionRoman(x, y):
     d = toRoman(c)
     return d
 
-# Multiplikasjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter multiplikasjon og gjør om
-# svaret til romertall igjen
+    # Multiplikasjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter multiplikasjon og gjør om
+    # svaret til romertall igjen
 
 def multiplicationRoman(x, y):
     a = fromRoman(x)
@@ -128,11 +128,11 @@ def multiplicationRoman(x, y):
     d = toRoman(c)
     return d
     
-# VANSKELIGE MATTEFUNKSJONER
+    # VANSKELIGE MATTEFUNKSJONER
 
 def romanAddition(x, y):
     
-# Gjør om parameterene (x og y) til lange romertall    
+    # Gjør om parameterene (x og y) til lange romertall    
     suby1 = y.replace("CM", "DCCCC")
     suby2 = suby1.replace("CD", "CCCC")
     suby3 = suby2.replace("XC", "LXXXX")
@@ -147,13 +147,13 @@ def romanAddition(x, y):
     subx5 = subx4.replace("IX", "VIIII")
     subx6 = subx5.replace("IV", "IIII")
 
-# resultat = string
-# legger sammen parameterene til en
+    # resultat = string
+    # legger sammen parameterene til en
     result = ""
     add = subx6 + suby6
     result += add
 
-# Sorterer med verdien høyest fra venstre til høyre
+    # Sorterer med verdien høyest fra venstre til høyre
     valueOrder = "MDCLXVI"
     sortingList = sorted(result, key=valueOrder.index)
     
@@ -161,7 +161,7 @@ def romanAddition(x, y):
     
     str1 = ''.join(sortingList)
     
-# gjør om lange romertall til ordinære romertall
+    # gjør om lange romertall til ordinære romertall
     tmp1 = str1.replace("IIIII", "V")
     tmp2 = tmp1.replace("VV", "X")
     tmp3 = tmp2.replace("XXXXX", "L")
@@ -180,7 +180,7 @@ def romanAddition(x, y):
     
 def romanSubtraction(x, y):
                    
-# Gjør om parameterene (x og y) til et lengre romertall
+    # Gjør om parameterene (x og y) til et lengre romertall
     suby1 = y.replace("CM", "DCCCC")
     suby2 = suby1.replace("CD", "CCCC")
     suby3 = suby2.replace("XC", "LXXXX")
@@ -207,7 +207,7 @@ def romanSubtraction(x, y):
     subx11 = subx10.replace("X", "VV")
     subx12 = subx11.replace("V", "IIIII")
     
- # Legger hver bokstav i x og y i en liste
+    # Legger hver bokstav i x og y i en liste
     charX = []
     for string in subx12:
         for char in string:
@@ -218,13 +218,13 @@ def romanSubtraction(x, y):
         for char in string:
             charY.append(char)
             
- # For hver bokstav i listene, fjern bokstav               
+     # For hver bokstav i listene, fjern bokstav               
     for char in charX[:]:
         if char in charY:
             charX.remove(char)
             charY.remove(char)
 
-# Gjør om resultatet til string
+    # Gjør om resultatet til string
     result = ""
     
     sub1 = ''.join(charX)
@@ -233,7 +233,7 @@ def romanSubtraction(x, y):
     sub = sub1 + sub2
     result += sub
     
-# Sorterer listen i en rekkefølge hvor høyest verdi er fra venstre mot høyre
+    # Sorterer listen i en rekkefølge hvor høyest verdi er fra venstre mot høyre
     valueOrder = "MDCLXVI"
     sortingList = sorted(result, key=valueOrder.index)
     
@@ -241,7 +241,7 @@ def romanSubtraction(x, y):
     
     str1 = ''.join(sortingList)
     
-# Gjør om lange romertall til "vanlig"/ordinær romertall
+    # Gjør om lange romertall til "vanlig"/ordinær romertall
     tmp1 = str1.replace("IIIII", "V")
     tmp2 = tmp1.replace("VV", "X")
     tmp3 = tmp2.replace("XXXXX", "L")
