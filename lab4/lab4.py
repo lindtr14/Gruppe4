@@ -56,7 +56,8 @@ def allmax(iterable, key=(lambda x: x)):
   return result 
   
 import random
- 
+
 def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
   random.shuffle(deck)
-  return [deck[n*i:n*(i+1)] for i  in range(numhands)]
+  # slice n kort ut av kortstokken, for hver spiller:
+  return [deck[n*i:n*(i+1)] for i in range(numhands)]
