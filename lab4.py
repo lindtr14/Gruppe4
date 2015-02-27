@@ -36,12 +36,14 @@ def kind(n, ranks):
   return None
     
 def two_pair(ranks):
-  pair = kind(2, ranks)
-  lowpair = kind(2, list(reversed(ranks)))
-  if pair and lowpair != pair:
-    return (pair, lowpair)
+  pair = kind(2, ranks) # Finding two cards that has the same value. Give them the name "pair". 
+                        # This will pick out the highest pair first
+  lowpair = kind(2, list(reversed(ranks))) # Finding two cards that has the same value, but in a reversed list. 
+                                           # Since its reversed, this will pick out the lowest pair
+  if pair and lowpair != pair: # Checking if pair and lowpair is NOT the same
+    return (pair, lowpair) # If the "if" is true, then return their values
   else:
-    return 'Not two pair'
+    return None # Else return None
   
 def allmax(iterable, key=(lambda x: x)):
   result, maxval = [], None
