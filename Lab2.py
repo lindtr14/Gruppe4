@@ -265,3 +265,7 @@ def romanSubtraction(x, y):
     tmp12 = tmp11.replace("CCCC", "CD")
     
     return tmp12
+
+# REFERANSER
+# Mark Pilgrim, 8th August 2001, retrieved January 2015 from
+# http://docutils.sourceforge.net/docutils/utils/roman.py
