@@ -1,6 +1,6 @@
 # Forklaring til Oppgave 3.
 
-#   endring fra stor til liten bokstav har den sammenhengen at:
+#   Endring fra stor til liten bokstav har den sammenhengen at:
 #   feks Y = 01011001
 #   og   y = 01111001
 
