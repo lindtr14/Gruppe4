@@ -265,6 +265,19 @@ def romanSubtraction(x, y):
     tmp12 = tmp11.replace("CCCC", "CD")
     
     return tmp12
+    
+def test():
+    assert assert toRoman(5) == 'V'
+    assert fromRoman('C') == 100
+    assert additionRoman('C', 'C') == 'CC'
+    assert subtractionRoman('L', 'X') == 'XL'
+    assert multiplicationRoman('IX', 'IX') == 'LXXXI'
+    assert romanAddition('CCXXXIV', 'CLXXIII') == 'CDVII'
+    assert romanSubtraction('LXXXVII', 'XXXVI') == 'LI'
+    
+    return "Alle testene ble fullfort uten feil"
+    
+print test()
 
 # REFERANSER
 # Mark Pilgrim, 8th August 2001, retrieved January 2015 from
