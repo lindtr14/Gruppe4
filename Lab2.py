@@ -85,8 +85,8 @@ def fromRoman(s):
     er while-løkken ferdig og result viser verdien i desimaltall."""
 
 
-result = 0
-index = 0
+    result = 0
+    index = 0
     for numeral, integer in romanNumeralMap:
         while s[index:index+len(numeral)] == numeral:
             result += integer
