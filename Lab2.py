@@ -84,12 +84,16 @@ def fromRoman(s):
     if not romanNumeralPattern.search(s):
         raise InvalidRomanNumeralError, 'Invalid Roman numeral: %s' % s
 
-    """ For-løkken går gjennom hvert nøkkel-verdipar med romertall og desimalverdier.
-    Index = 0, og While-løkken bruker derfor slice fra venstre til høyre og deler
-    stringen 's' opp i biter som passer til nøklene (romertallene) og legger de
-    tilsvarende verdiene (desimaltall) til result. Avhengig av lengden til numeral, vokser index
-    med 1 eller 2 for hver gang while-løkken kjører, og programmet tar dermed for seg romertallet
-    bit for bit til hele tallet er lest. Når s[index:index+len(numeral)] ikke lengre tilsvarer en numeral (nøkkel)
+    """ For-løkken går gjennom hvert nøkkel-verdipar 
+    med romertall og desimalverdier.
+    Index = 0, og While-løkken bruker derfor slice fra venstre til 
+    høyre og deler stringen 's' opp i biter som passer til 
+    nøklene (romertallene) og legger de tilsvarende verdiene (desimaltall) 
+    til result. Avhengig av lengden til numeral, vokser index
+    med 1 eller 2 for hver gang while-løkken kjører, 
+    og programmet tar dermed for seg romertallet
+    bit for bit til hele tallet er lest. 
+    Når s[index:index+len(numeral)] ikke lengre tilsvarer en numeral (nøkkel)
     er while-løkken ferdig og result viser verdien i desimaltall."""
 
 
@@ -103,8 +107,8 @@ def fromRoman(s):
     
     # ENKLE MATTEFUNKSJONER
     
-    # Addisjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter addisjon og gjør om
-    # svaret til romertall igjen
+    # Addisjon: Gjør om begge paramterene (romertall) til decimal. 
+    # Utfører deretter addisjon og gjør om svaret til romertall igjen
 
 def additionRoman(x, y):
     a = fromRoman(x)
@@ -114,8 +118,8 @@ def additionRoman(x, y):
     d = toRoman(c)
     return d
 
-    # Subtraksjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter subtraksjon og gjør om
-    # svaret til romertall igjen
+    # Subtraksjon: Gjør om begge paramterene (romertall) til decimal. 
+    # Utfører deretter subtraksjon og gjør om svaret til romertall igjen
     
 def subtractionRoman(x, y):
     a = fromRoman(x)
@@ -125,8 +129,8 @@ def subtractionRoman(x, y):
     d = toRoman(c)
     return d
 
-    # Multiplikasjon: Gjør om begge paramterene (romertall) til decimal. Utfører deretter multiplikasjon og gjør om
-    # svaret til romertall igjen
+    # Multiplikasjon: Gjør om begge paramterene (romertall) til decimal. 
+    # Utfører deretter multiplikasjon og gjør om svaret til romertall igjen
 
 def multiplicationRoman(x, y):
     a = fromRoman(x)
@@ -241,7 +245,8 @@ def romanSubtraction(x, y):
     sub = sub1 + sub2
     result += sub
     
-    # Sorterer listen i en rekkefølge hvor høyest verdi er fra venstre mot høyre
+    # Sorterer listen i en rekkefølge hvor høyest verdi er 
+    # fra venstre mot høyre
     valueOrder = "MDCLXVI"
     sortingList = sorted(result, key=valueOrder.index)
     
