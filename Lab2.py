@@ -33,9 +33,9 @@ def toRoman(n):
     return result
 
     """Metoden forklart: Ved input går for-løkken gjennom ordboka og
-    henter ut numeral (romertegn) og integer (desimaltall).
+    henter ut numeral (romertegn) og integer (desimaltall)."""
 
-    I for-løkken kjøres så en while-løkke som først sammenlikner n (input) med integer (tall i ordboka),
+    # I for-løkken kjøres så en while-løkke som først sammenlikner n (input) med integer (tall i ordboka),
     # og ser om n er større eller lik integer.
     # Med 894 som eksempel tar den da og ser at tallet ikke er større eller lik første i listen, nemlig 1000 for M.
     # Dermed kjøres løkken med en gang om igjen, og den sammenligner så med neste, som er 900. Igjen er n mindre,
@@ -50,7 +50,7 @@ def toRoman(n):
     # Da har result romertallet DCCCXC.
     # Til slutt hopper den over en haug med tall til den kommer til 4 for IV, og dermed har den "tømt" n for tall
     # som nå kun står igjen med 0, og 0 har ingen verdi i romertall.
-    # Dermed inneholder result nå DCCCXCIV. result = "" over gjør at den returnerer en string"""
+    # Dermed inneholder result nå DCCCXCIV. result = "" over gjør at den returnerer en string
 
 # Define pattern to detect valid Roman numerals
 romanNumeralPattern = re.compile("""
