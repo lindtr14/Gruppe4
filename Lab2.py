@@ -35,22 +35,30 @@ def toRoman(n):
     """Metoden forklart: Ved input går for-løkken gjennom ordboka og
     henter ut numeral (romertegn) og integer (desimaltall)."""
 
-    # I for-løkken kjøres så en while-løkke som først sammenlikner n (input) med integer (tall i ordboka),
+    # I for-løkken kjøres så en while-løkke som først sammenlikner n (input) 
+    # med integer (tall i ordboka),
     # og ser om n er større eller lik integer.
-    # Med 894 som eksempel tar den da og ser at tallet ikke er større eller lik første i listen, nemlig 1000 for M.
-    # Dermed kjøres løkken med en gang om igjen, og den sammenligner så med neste, som er 900. Igjen er n mindre,
+    # Med 894 som eksempel tar den da og ser at tallet ikke er større eller 
+    # lik første i listen, nemlig 1000 for M.
+    # Dermed kjøres løkken med en gang om igjen, og den sammenligner så med 
+    # neste, som er 900. Igjen er n mindre,
     # så derfor går den på nytt videre og ser om neste er lik eller mindre.
     # Da finner den 500 eller D, som jo ER mindre enn n (894).
-    # Dermed kjøres while-løkken og numeral(romertall) legges til variabelen result,
-    # slik at result så langt har D for 500.
-    # Deretter trekkes 500 fra n, (n -= integer) og n har nå tallet 394. Videre ser vi at det er lavere enn 400 for CD.
-    # Deretter ser man at den vil gå 3 ganger gjennom while-løkken siden 394 har 3 "hundrere".
+    # Dermed kjøres while-løkken og numeral(romertall) legges til variabelen 
+    # result, slik at result så langt har D for 500.
+    # Deretter trekkes 500 fra n, (n -= integer) og n har nå tallet 394. 
+    # Videre ser vi at det er lavere enn 400 for CD.
+    # Deretter ser man at den vil gå 3 ganger gjennom while-løkken siden 394
+    # har 3 "hundrere".
     # Så plusses de på i result, som da blir DCCC.
-    # Nå har n bare 94, og ved neste runde blir det 4 da 94 er større enn 90 for XC.
+    # Nå har n bare 94, og ved neste runde blir det 4 da 94 er større enn 
+    # 90 for XC.
     # Da har result romertallet DCCCXC.
-    # Til slutt hopper den over en haug med tall til den kommer til 4 for IV, og dermed har den "tømt" n for tall
+    # Til slutt hopper den over en haug med tall til den kommer til 4 for IV,
+    # og dermed har den "tømt" n for tall
     # som nå kun står igjen med 0, og 0 har ingen verdi i romertall.
-    # Dermed inneholder result nå DCCCXCIV. result = "" over gjør at den returnerer en string
+    # Dermed inneholder result nå DCCCXCIV. 
+    # result = "" over gjør at den returnerer en string
 
 # Define pattern to detect valid Roman numerals
 romanNumeralPattern = re.compile("""
