@@ -30,7 +30,17 @@ def flush(hand):
   suits = [s for r, s in hand]
   return len(set(suits)) == 1
   
+# n is the input for what kind of rank «kind» we want to find. 2 for two of a kind (1pair), 
+# 3 for three of a kind, 4 for four of a kind
+# ranks will be our hand or the list of card we got
+
 def kind(n, ranks):
+  
+# this for expression will check in our ranks/list if it can count how many r are alike, depending on what number we defined in n
+# if we said n = 3, the for expression will try to find if it can find 3 r’s that are the same. 
+# If it is, it will return that r value. If not it will return none
+# count is a method in lists
+
   for r in ranks:
     if ranks.count(r) == n: return r
   return None
