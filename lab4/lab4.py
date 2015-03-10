@@ -17,11 +17,11 @@ def hand_rank(hand):
   
   count_rankings = {(5,):10, (4,1):7, (3,2):6, (3,1,1):3, (2,2,1):2, (2,1,1,1):1, (1,1,1,1,1):0}
 
-def group(items):
-  groups = [(items.count(x), x) for x in set(items)]
-  return sorted(groups, reverse=True)
+def group(items): # Takes a list of items and returns a list of "counts" of items and the list itself
+  groups = [(items.count(x), x) for x in set(items)] # Goes through set(items) and returns pairs of the "count" and set and sorts them in reversed order so that the highest comes first
+  return sorted(groups, reverse=True) 
   
-def unzip(pairs): return zip(*pairs)
+def unzip(pairs): return zip(*pairs) # Converts a list of pairs into a pair of lists 
   
 def card_ranks(hand):
   ranks = ["--23456789TJQKA".index(r) for r,s in hand]
