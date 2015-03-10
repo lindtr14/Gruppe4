@@ -1,3 +1,8 @@
+#   Takes all the hands made by the deal function. The hands comes as
+#   a list of lists (hands). Then every hand will be sorted and given
+#   a rank (hand_rank) in turn, one after the other.
+#   The allmax function will then find wich one is the highest ranking
+#   hand.
 def poker(hands):
   return allmax(hands, key=hand_rank)
   
