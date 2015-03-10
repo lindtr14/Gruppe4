@@ -60,6 +60,9 @@ def two_pair(ranks):
   else:
     return None # Else return None
   
+#   Compares all the hands in a list of lists (hands) and finds the one
+#   with the maximum value or rank. If there is a tie, both hands will
+#   be returned.
 def allmax(iterable, key=(lambda x: x)):
   result, maxval = [], None
   for x in iterable:
