@@ -2,7 +2,7 @@
 #   a list of lists (hands). Then every hand will be sorted and given
 #   a rank (hand_rank) in turn, one after the other.
 #   The allmax function will then find wich one is the highest ranking
-#   hand.
+#   hand or hands if there is a tie.
 def poker(hands):
   return allmax(hands, key=hand_rank)
   
@@ -63,14 +63,32 @@ def two_pair(ranks):
 #   Compares all the hands in a list of lists (hands) and finds the one
 #   with the maximum value or rank. If there is a tie, both hands will
 #   be returned.
+#   The key=(lambda x: x) means that key(x) will take the next hand in 
+#   the loop and assign it to the variable xval. Lambda does the same as a
+#   function, only it takes less space and return a value without any
+#   return statement. The first x is the paramenter.
 def allmax(iterable, key=(lambda x: x)):
+  """The result will be a list of hands, initially empty. The maxval will
+  be the maximum value in the iterable, initially none."""
   result, maxval = [], None
+  """For each hand in iterable, apply the lambda key to x and put it in
+  xval."""
   for x in iterable:
     xval = key(x)
+  """ If there is no result (the first time in the loop), then make
+  result have the value of that hand in a list. Or if xval (current
+  hand), is greater than the value of maxval (the best hand), make
+  maxval to be the value of xval (a new best hand)."""
   if not result or xval > maxval:
     result, maxval = [x], xval
+  """ If the value of xval (the next hand) is equal to the maxval (the
+  best hand), then append that hand to the result variable. This
+  means that result will now have at least two identical hands in its
+  list of hands."""
   elif xval == maxval:
     result.append(x)
+  """ Return the result, which could be a list of one hand, or more if
+  there is a tie."""
   return result 
   
 # importing the module random to help us pick out random cards from the deck
