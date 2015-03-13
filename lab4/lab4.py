@@ -9,6 +9,7 @@ def poker(hands):
 def hand_rank(hand):
   groups = group(['--23456789TJQKA'.index(r) for r, s in hand])
   counts, ranks = unzip(groups)
+  # makes straight with ace valued to one possible.
   if ranks == (14, 5, 4, 3, 2):
     ranks = (5, 4, 3, 2, 1) 
   # is straight if 5 different ranks, and the highest rank is 4 higher than lowest rank
