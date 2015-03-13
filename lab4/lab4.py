@@ -26,9 +26,16 @@ def group(items): # Takes a list of items and returns a list of "counts" of item
   
 def unzip(pairs): return zip(*pairs) # Converts a list of pairs into a pair of lists 
   
+#Takes a hand, pulls out a ranking of each hands, 
+#sorts them so the highest number is first and return them.
 def card_ranks(hand):
+  #Return a list of  the ranks, sorted with the higher first.
   ranks = ["--23456789TJQKA".index(r) for r,s in hand]
+  #Reverse the rank. Because we usually associate highest number (8) with the best cards.
   ranks.sort(reverse=True)
+  #If ranks is equal to ace low/high straight, it will return a fix, this is the only time returning 1 as a value
+	#Makes ace to be one instead of fourteen. 
+	#If any other ranks, return as it.
   return [5, 4, 3, 2, 1] if (ranks == [14, 5, 4, 3, 2]) else ranks
   
   
