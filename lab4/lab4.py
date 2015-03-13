@@ -11,7 +11,10 @@ def hand_rank(hand):
   counts, ranks = unzip(groups)
   if ranks == (14, 5, 4, 3, 2):
     ranks = (5, 4, 3, 2, 1) 
+  # is straight if 5 different ranks, and the highest rank is 4 higher than lowest rank
+  # (a neat way of checking for 5 consecutive ranks)
   straight = len(ranks) == 5 and max(ranks)-min(ranks) == 4
+  # is flush if there is only one suit in the set of suits
   flush = len(set([s for r, s in hand])) == 1
   return max(count_rankings[counts], 4*straight + 5*flush), ranks
   
@@ -28,12 +31,6 @@ def card_ranks(hand):
   ranks.sort(reverse=True)
   return [5, 4, 3, 2, 1] if (ranks == [14, 5, 4, 3, 2]) else ranks
   
-def straight(ranks):
-  return (max(ranks)-min(ranks) == 4) and len(set(ranks)) == 5
-  
-def flush(hand):
-  suits = [s for r, s in hand]
-  return len(set(suits)) == 1
   
 # n is the input for what kind of rank «kind» we want to find. 2 for two of a kind (1pair), 
 # 3 for three of a kind, 4 for four of a kind
