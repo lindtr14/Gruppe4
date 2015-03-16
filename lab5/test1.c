@@ -1,3 +1,5 @@
+// Oppgave 1a
+
 #include <stdio.h>
 
 int main() {
