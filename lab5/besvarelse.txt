@@ -1,0 +1,167 @@
+Lab 5 - Dataprogrammer
+
+Oppgave 1
+
+a.
+Se Github
+
+b. 
+Kjør først “gcc test1.c” for kompilere filen med gcc
+Deretter kan man kjøre “./a.out” for å få frem meldingen som er skrevet i filen 
+
+c.
+Fra .c til .i: > cpp test1.c > test1.i
+Fra .i til .s: > gcc -S test1.i
+Fra .s til .o: > as -o test1.o test1.s
+
+‘test1.i’-filen illustrerer eller viser hvor på maskinen en modul eller pakke skal hentes fra. Dette gjør at du i C kan skrive for eksempel #include <stdio.h> og så finner maskinen ut hvor den skal hente relevante moduler. Dette gjør at c-koden blir mindre og tar mindre plass, da den ikke trenger å legge inn alle nødvendig kode på forhånd.
+
+‘test1.s’-filen er assembly kode, kode som er kompilert og gjort om spesifikt for maskinens prosessor. Hver prosessor har sin egen assembly-kode, så assembly-kode laget for én prosessor fungerer ikke på en annen prosessor. Assembly-kode bruker de samme metoder og oppsett som maskinkode, bortsett fra at den er skrevet i leselig språk, og ikke kun 1 og 0.
+
+‘test.o’-filen er maskinkode som ikke har blitt linket sammen til et komplett program, den har ikke hentet ut fullstendig kode fra operativsystemets biblioteker. Maskinkode er kun 1 og 0 og kan kjøres direkte på cpu’en.
+
+Oppgave 2
+
+a, b og c
+Steg 1: import struct
+Steg 2: f = open(“a.out”, “rb”). 
+Steg 3. f.read(1). Dette gav oss: “\x7f”
+Steg 3: Gjenta steg 3 flere ganger. Dette gav oss: “E”, “L” og “F”
+Steg 4: Ved å sjekke http://en.wikipedia.org/wiki/List_of_file_signatures fant vi ut at .ELF er filsignaturen til en fil av typen “Executeable and Linkeable Format”
+
+d.
+rb betyr read only in binary.
+
+Oppgave 3
+Husk å kjøre steg 1 og 2 fra oppgave 2 før man kjører “bin = struct.unpack("B", file.read(1))[0]”
+
+a.
+‘B’ betyr Binary
+
+b.
+f.read(1)  leser en og en byte og returnerer første byte som hexadesimal, deretter flytter head seg ett hakk bortover, og den leser så de neste bytes i filsignaturen.
+
+c.
+Unpack funksjonen returnerer 127 som resultat. Dette er den første i en tuple, henter ut det som ligger på posisjon 0. 
+
+d.
+Ved tidligere oppgaver fant vi ut at filen vår var representert som 127 i desimal. Ved å lese byte for byte fant vi: “ 0x7F ‘E’ ‘L’ ‘F’ ”
+Når en datamaskin skal starte et program vil den lese de første bytene av filen. I vårt tilfelle fant den  “ 0x7F ‘E’ ‘L’ ‘F’ ” som tilsvarer en .ELF fil. Datamaskinen vet da hvordan filen skal åpnes og kjøres. Dette tilsvarer da ELF 32-bit LSB Executeable
+
+Oppgave 4
+
+a.
+bin >> 7 gir resultatet 0
+Dette fordi 7 vil “slette” 7 tall fra 127. Fra høyre mot venstre. Siden 127 = 0111 1111 vil dette bli 0. 
+
+1111 1111 								0000 0001 
+
+b.
+bin >> 7 gir 0
+bin >> 1 gir 63
+bin >> 7 & 1 = 0
+Dette fordi bin >> 7 gir 0, derfor returnerer 0 & 1 = 0, fordi i en AND operasjon må begge tallene tilsvare 1 eller ha 1’ere, for å få returnert 1. Hvis du sammenligner tallene 1 & 1 så vil du få returnert 1, som en form for ‘True’. mens hvis du sammenligner tallene 1 & 0 eller 0 & 0 vil du få returnert 0, som en form for ‘False’.
+
+0111 = 7
+0001 = 1
+0001 = 1
+
+bin >> 4 = 7
+7 & 1
+111 = 7
+001 = 1
+
+001 = 1
+
+0111 = 7
+0110 = 6
+0110 = 6 
+
+100 & 50
+
+100 = 1100100
+50 =     110010
+            100000 = 32
+
+bin >> 7 = 0   0 & 1 = 0     0000 & 0001
+bin >> 6 = 1   1 & 1 = 1     0001 & 0001
+bin >> 5 = 3   3 & 1 = 1     0011 & 0001
+bin >> 4 = 6   6 & 1 = 0     0110 & 0001
+
+c.
+str(bin >> 7 & 1) gir 0.
+Forskjellen er at denne linjen returnerer resultatet som en string
+
+d.
+Bin >> 8 har ikke noe tall å flytte bortover, så enten lager den en 0 eller så har den ingenting.
+
+e.
+[str(bin >> x & 1) for x in (7,6,5,4,3,2,1,0)] gir ['0', '1', '1', '1', '1', '1', '1', '1']
+Koden kjører en loop som gjør bitwise-operasjoner for alle verdiene du setter inn som representerer x. For eksempel tar den andre gang å legger 6 inn i variabelen x, og kjører bin >> 6 som gir 1 i binærtall, og deretter bitwise AND (&) som ser om alle tallene i binærtallet 1 er én, noe det jo er. Derfor returneres 1 som en form for True. 
+
+f.
+‘’.join([str(bin >> x & 1) for x in (7,6,5,4,3,2,1,0)]) gjør den samme operasjonen som i oppgaven over, men ‘joiner’ eller legger sammen alle elementene i listen til én lang string.
+
+g.
+hex(bin) returnerer bin-tallet som et hexadecimaltall. hex(127) = 7F =0111 1111.
+
+h.
+Første representasjon i filsignaturen til ELF er hexadesimaltallet 7F.
+
+i.
+Etter å ha kjørt punkt 3 andre gangen fikk vi: “E”
+
+j.
+Den gikk fra hex til ASCII tegn, det er den måten bash terminalen viser det som output. Det tilsvarer 69 i desimaltall eller 45 i hexadesimaltall. Innholdet til bin vil endre seg fra hver gang punkt 3 kjøres
+
+
+Oppgave 5
+Siden vi importerer struct kan vi bruke denne modulen til å hente ut ELF spesifikasjoner. Dette har vi gjort tidligere i oppgaven med blant annet “unpack”
+
+Oppgave 6
+Ved å kjøre punkt 3) to ganger til får vi ‘L’ og ‘F’ , (76 og 70).
+
+a.
+Vi har funnet “ ‘0x7F ‘E’ ‘L’ ‘F’ “. Dette gir oss et “oppslag” som vi kan slå opp på i tabellen som er å finne på linken. Tabellen viser at  filen vår har en format som tilsvarer “Executeable and Linkable Format”
+
+b.
+Etter å ha kjørt f.read(1) 4 ganger (f.read(4)) får vi fram: ‘0x7F ‘E’ ‘L’ ‘F’. Dette kaller vi for Magic numbers. Disse utgjør File signatures.
+
+Oppgave 7
+
+a.
+Når koden kjøres femte og sjette gang får vi hex “ 02 “ og hex “ 01 “. Det er der maskinkoden begynner, derfor vil ulike typer prosessorer få ulike tall, fordi maskinkoden er spesifik for maskinens cpu.
+
+b.
+Her kan vi bruke f.seek() funksjonen til å få fram samme verdi etter 6 kall. I dette tilfelle måtte vi ha brukt f.seek(6) for å hente ut samme verdi som vi hadde fått hvis vi hadde brukt f.read(1) seks ganger
+
+Oppgave 8
+
+Linda: 8202
+Andreas: 5346, 5457, 5459
+
+Den viser alle python filer som er åpne, det vil si du får først opp PID (feks 5346). hvis man så kjører $ lsof -p 5346 gitt at det er PID, prosessorID, så vil den vise deg alle filene i tilknytning prosessen som er åpne. Hvis man bruker $ ls -l /proc/5346/fd får du opp hvor den åpne filen ligger lagret.
+
+
+
+
+Oppgave 9
+
+fd står for File Descriptor. Det er en abstrakt indikator for å tilgang på en fil. Hver prosess har sine egne file descriptor strukturer. Prosessene kan ikke gå direkte og lese og skrive til en fil, men må gå via kjernen som vil hente ut filen på vegne av prosessen.
+
+File descriptor er et “verktøy” som holder styr på filer som går inn og ut av en prosess. 
+
+Oppgave 10
+
+Når man lukker med f.close() vil den fortsatt ha åpen fd, prosessor table, men selve stien/adressen til filen vil være borte. Så du har lukket filen.
+Hva viser 16 15:03 2 -> /dev/pts/1 til?
+
+Oppgave 11
+
+a.
+Et OS burde kunne forstå hvilken fil den behandler. Altså hvis den behandler JPG, så vil den kunne kjøre JPG slik den skal. Det er viktig at et OS kan lese forskjellige formater slik at du får dekket de fleste behovene en bruker har. 
+
+b.
+Første steg blir å lese av filen. Om man leser byte for byte, vil første byte vise hex 7f som tilsvarer ELF fil. 
+
+
