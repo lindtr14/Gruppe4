@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# loads the regular expressions module
+# Loads the regular expressions module
 import re
 
 # Roman Numerals
