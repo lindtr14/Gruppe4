@@ -1,9 +1,9 @@
-    # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
-    # loads the regular expressions module
+# loads the regular expressions module
 import re
 
-    # Roman Numerals
+# Roman Numerals
 romanNumeralMap = (('M', 1000),
                    ('CM', 900),
                    ('D',  500),
@@ -32,34 +32,6 @@ def toRoman(n):
             n -= integer
     return result
 
-    """Metoden forklart: Ved input går for-løkken gjennom ordboka og
-    henter ut numeral (romertegn) og integer (desimaltall)."""
-
-    # I for-løkken kjøres så en while-løkke som først sammenlikner n (input) 
-    # med integer (tall i ordboka),
-    # og ser om n er større eller lik integer.
-    # Med 894 som eksempel tar den da og ser at tallet ikke er større eller 
-    # lik første i listen, nemlig 1000 for M.
-    # Dermed kjøres løkken med en gang om igjen, og den sammenligner så med 
-    # neste, som er 900. Igjen er n mindre,
-    # så derfor går den på nytt videre og ser om neste er lik eller mindre.
-    # Da finner den 500 eller D, som jo ER mindre enn n (894).
-    # Dermed kjøres while-løkken og numeral(romertall) legges til variabelen 
-    # result, slik at result så langt har D for 500.
-    # Deretter trekkes 500 fra n, (n -= integer) og n har nå tallet 394. 
-    # Videre ser vi at det er lavere enn 400 for CD.
-    # Deretter ser man at den vil gå 3 ganger gjennom while-løkken siden 394
-    # har 3 "hundrere".
-    # Så plusses de på i result, som da blir DCCC.
-    # Nå har n bare 94, og ved neste runde blir det 4 da 94 er større enn 
-    # 90 for XC.
-    # Da har result romertallet DCCCXC.
-    # Til slutt hopper den over en haug med tall til den kommer til 4 for IV,
-    # og dermed har den "tømt" n for tall
-    # som nå kun står igjen med 0, og 0 har ingen verdi i romertall.
-    # Dermed inneholder result nå DCCCXCIV. 
-    # result = "" over gjør at den returnerer en string
-
 # Define pattern to detect valid Roman numerals
 romanNumeralPattern = re.compile("""
     ^                   # beginning of string                                
@@ -72,10 +44,6 @@ romanNumeralPattern = re.compile("""
                         #        or 5-8 (V, followed by 0 to 3 I's)
     $                   # end of string
     """ ,re.VERBOSE)
-    
-# re.VERBOSE er et såkalt 'Flag' i metoden som gjør at man kan skrive
-# inn ting i metodekallet mer oversiktlig, slikt som kommentarer, samt
-# at den ignorerer whitespaces.
 
 def fromRoman(s):
     """convert Roman numeral to integer"""
@@ -84,19 +52,6 @@ def fromRoman(s):
     if not romanNumeralPattern.search(s):
         raise InvalidRomanNumeralError, 'Invalid Roman numeral: %s' % s
 
-    """ For-løkken går gjennom hvert nøkkel-verdipar 
-    med romertall og desimalverdier.
-    Index = 0, og While-løkken bruker derfor slice fra venstre til 
-    høyre og deler stringen 's' opp i biter som passer til 
-    nøklene (romertallene) og legger de tilsvarende verdiene (desimaltall) 
-    til result. Avhengig av lengden til numeral, vokser index
-    med 1 eller 2 for hver gang while-løkken kjører, 
-    og programmet tar dermed for seg romertallet
-    bit for bit til hele tallet er lest. 
-    Når s[index:index+len(numeral)] ikke lengre tilsvarer en numeral (nøkkel)
-    er while-løkken ferdig og result viser verdien i desimaltall."""
-
-
     result = 0
     index = 0
     for numeral, integer in romanNumeralMap:
@@ -104,34 +59,8 @@ def fromRoman(s):
             result += integer
             index += len(numeral)
     return result
-    
-    # ENKLE MATTEFUNKSJONER
-    
-    # Addisjon: Gjør om begge paramterene (romertall) til decimal. 
-    # Utfører deretter addisjon og gjør om svaret til romertall igjen
 
-def additionRoman(x, y):
-    a = fromRoman(x)
-    b = fromRoman(y)
-    
-    c = a + b 
-    d = toRoman(c)
-    return d
-
-    # Subtraksjon: Gjør om begge paramterene (romertall) til decimal. 
-    # Utfører deretter subtraksjon og gjør om svaret til romertall igjen
-    
-def subtractionRoman(x, y):
-    a = fromRoman(x)
-    b = fromRoman(y)
-    
-    c = a - b 
-    d = toRoman(c)
-    return d
-
-    # Multiplikasjon: Gjør om begge paramterene (romertall) til decimal. 
-    # Utfører deretter multiplikasjon og gjør om svaret til romertall igjen
-
+# Function to multiply roman numerals
 def multiplicationRoman(x, y):
     a = fromRoman(x)
     b = fromRoman(y)
@@ -140,11 +69,10 @@ def multiplicationRoman(x, y):
     d = toRoman(c)
     return d
     
-    # VANSKELIGE MATTEFUNKSJONER
-
+# Function to perform addition with two roman numerals
 def romanAddition(x, y):
     
-    # Gjør om parameterene (x og y) til lange romertall    
+    # Replace the x and y parameters with longer roman numerals
     suby1 = y.replace("CM", "DCCCC")
     suby2 = suby1.replace("CD", "CCCC")
     suby3 = suby2.replace("XC", "LXXXX")
@@ -159,13 +87,13 @@ def romanAddition(x, y):
     subx5 = subx4.replace("IX", "VIIII")
     subx6 = subx5.replace("IV", "IIII")
 
-    # resultat = string
-    # legger sammen parameterene til en
+    # Making result into a string
+    # Combining the parameters into one string
     result = ""
     add = subx6 + suby6
     result += add
 
-    # Sorterer med verdien høyest fra venstre til høyre
+    # Sorting with a condition
     valueOrder = "MDCLXVI"
     sortingList = sorted(result, key=valueOrder.index)
     
@@ -173,7 +101,7 @@ def romanAddition(x, y):
     
     str1 = ''.join(sortingList)
     
-    # gjør om lange romertall til ordinære romertall
+    # Replace the long roman numeral with an original roman numeral
     tmp1 = str1.replace("IIIII", "V")
     tmp2 = tmp1.replace("VV", "X")
     tmp3 = tmp2.replace("XXXXX", "L")
@@ -189,10 +117,11 @@ def romanAddition(x, y):
     tmp12 = tmp11.replace("DCCCC", "CM")
     
     return tmp12
-    
+  
+# Function to perform a subtraction with two roman numbers  
 def romanSubtraction(x, y):
                    
-    # Gjør om parameterene (x og y) til et lengre romertall
+    # Replace the x and y parameters with longer roman numerals
     suby1 = y.replace("CM", "DCCCC")
     suby2 = suby1.replace("CD", "CCCC")
     suby3 = suby2.replace("XC", "LXXXX")
@@ -219,7 +148,7 @@ def romanSubtraction(x, y):
     subx11 = subx10.replace("X", "VV")
     subx12 = subx11.replace("V", "IIIII")
     
-    # Legger hver bokstav i x og y i en liste
+    # Adding every character for x and y in a list
     charX = []
     for string in subx12:
         for char in string:
@@ -230,13 +159,13 @@ def romanSubtraction(x, y):
         for char in string:
             charY.append(char)
             
-     # For hver bokstav i listene, fjern bokstav               
+     # For each common character in both lists, remove it            
     for char in charX[:]:
         if char in charY:
             charX.remove(char)
             charY.remove(char)
 
-    # Gjør om resultatet til string
+    # Making result into a string
     result = ""
     
     sub1 = ''.join(charX)
@@ -245,8 +174,7 @@ def romanSubtraction(x, y):
     sub = sub1 + sub2
     result += sub
     
-    # Sorterer listen i en rekkefølge hvor høyest verdi er 
-    # fra venstre mot høyre
+    # Sorting with a condition
     valueOrder = "MDCLXVI"
     sortingList = sorted(result, key=valueOrder.index)
     
@@ -254,7 +182,7 @@ def romanSubtraction(x, y):
     
     str1 = ''.join(sortingList)
     
-    # Gjør om lange romertall til "vanlig"/ordinær romertall
+    # Replace the long roman numeral to original roman numereal
     tmp1 = str1.replace("IIIII", "V")
     tmp2 = tmp1.replace("VV", "X")
     tmp3 = tmp2.replace("XXXXX", "L")
@@ -284,6 +212,6 @@ def test():
     
 print test()
 
-# REFERANSER
+# Sources
 # Mark Pilgrim, 8th August 2001, retrieved January 2015 from
 # http://docutils.sourceforge.net/docutils/utils/roman.py
