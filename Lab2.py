@@ -60,8 +60,8 @@ def fromRoman(s):
             index += len(numeral)
     return result
 
-# Function to multiply roman numerals
 def multiplicationRoman(x, y):
+    """Function to multiply roman numerals"""
     a = fromRoman(x)
     b = fromRoman(y)
     
@@ -69,8 +69,8 @@ def multiplicationRoman(x, y):
     d = toRoman(c)
     return d
     
-# Function to perform addition with two roman numerals
 def romanAddition(x, y):
+    """Function to perform addition with two roman numerals"""
     
     # Replace the x and y parameters with longer roman numerals
     suby1 = y.replace("CM", "DCCCC")
@@ -118,8 +118,8 @@ def romanAddition(x, y):
     
     return tmp12
   
-# Function to perform a subtraction with two roman numerals  
 def romanSubtraction(x, y):
+    """Function to perform a subtraction with two roman numerals"""
                    
     # Replace the x and y parameters with longer roman numerals
     suby1 = y.replace("CM", "DCCCC")
