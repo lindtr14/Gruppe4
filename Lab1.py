@@ -6,7 +6,7 @@ import sys
 import psutil
 
 # Group members: 
-gruppe = {  'student1': 'Andreas Kjærner-Semb', 
+gruppe = {	'student1': 'Andreas Kjærner-Semb', 
 			'student2': 'Linda Tran', \
 			'student3': 'Frank William Hansen', \
 			'student4': 'Ole Aarsnes', \
