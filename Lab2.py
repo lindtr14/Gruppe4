@@ -118,7 +118,7 @@ def romanAddition(x, y):
     
     return tmp12
   
-# Function to perform a subtraction with two roman numbers  
+# Function to perform a subtraction with two roman numerals  
 def romanSubtraction(x, y):
                    
     # Replace the x and y parameters with longer roman numerals
