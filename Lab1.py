@@ -12,19 +12,7 @@ gruppe = {  'student1': 'Andreas Kjærner-Semb',
             'student5': 'Mikael Kile', \
 }
 
-#
 #  Oppgave 1
-#    Leke med utskrift 
-#    Skriv ut følgende "ascii art" i en funksjon (erstatte pass)
-#    Funksjonen skal hete ascii_fugl() og skal være uten argumenter og uten returverdier
-#    Den skal skrive ut følgende når den brukes ascii_fugl
-#
-#       \/_
-#  \,   /( ,/
-#   \\\' ///
-#    \_ /_/
-#    (./
-#     '` 
 def ascii_fugl():
     print"#       \/"
     print"#       \/_"
