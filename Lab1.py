@@ -14,6 +14,7 @@ gruppe = {  'student1': 'Andreas Kjærner-Semb',
 }
 
 #  Exercise 1
+# Print out a bird in ascii.
 def ascii_fugl():
     print"#       \/"
     print"#       \/_"
@@ -26,16 +27,22 @@ def ascii_fugl():
 ascii_fugl()
 
 #  Exercise 2
+# Takes two numbers and returns in which position they both
+# have 1 in a binary number.
 def bitAnd(x, y): 
 	i = (x & y)
     	return i
 
 #  Exercise 3
+# Takes two numbers and returns in which position only one
+# of them have 1 and the other 0.
 def bitXor(x, y):
 	i = x ^ y
 	return i
 
 #  Exercise 4
+# Takes two numbers and returns in wich position only one
+# or both have 1 in a binary number.
 def bitOr(x, y):
 	i = x | y
 	return i
