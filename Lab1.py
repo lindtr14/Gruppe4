@@ -1,15 +1,10 @@
 # -*- coding: latin-1 -*-
 
-#
 #  IS-105 LAB1
-#
-#  lab1.py - kildekode vil inneholde studentenes løsning.
-#         
-#
-#
+
 import sys
 
-# Skriv inn fullt navn på gruppemedlemene (erstatte '-' med navn slikt 'Kari Trå')
+# Gruppemedlemmene: 
 gruppe = {  'student1': 'Andreas Kjærner-Semb', 
             'student2': 'Linda Tran', \
             'student3': 'Frank William Hansen', \
