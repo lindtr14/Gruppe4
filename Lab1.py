@@ -60,8 +60,10 @@ def ascii8Bin(letter):
 def transferBin(string):
 
 	l = list(string)
+	outstr = ""
 	for c in l:
-		ascii8Bin(c) 
+		outstr += ascii8Bin(c) + " "
+	return outstr
 
 #  Exercise 7
 # Takes a string and returns the letters representation
@@ -108,7 +110,7 @@ def test():
 	assert ascii8Bin('a') == '01100001'
 	assert ascii8Bin('A') == '01000001'
 
-	assert transferBin('hei') == ''
+	assert transferBin('hei') == '01101000 01100101 01101001 '
 	assert transferHex('hei') == '68 65 69 '
 	assert unicodeBin('å') == '11000011 10100101 '
 	assert unicodeBin('a') == '01100001'
