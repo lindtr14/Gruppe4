@@ -208,7 +208,7 @@ def test():
     assert romanAddition('CCXXXIV', 'CLXXIII') == 'CDVII'
     assert romanSubtraction('LXXXVII', 'XXXVI') == 'LI'
     
-    return "Alle testene ble fullfort uten feil"
+    return "The tests are completed successfully"
     
 print test()
 
