@@ -64,10 +64,10 @@ def transferHex(string):
 	
 	outstr = ""
     
-    ord_I_Liste = list(string)
-    for bokstav in ord_I_Liste:
-        representasjon = ord(bokstav)
-        outstr += '{0:02x} '.format(representasjon)
+    words_in_list = list(string)
+    for character in words_in_list:
+        representation = ord(character)
+        outstr += '{0:02x} '.format(representation)
         
     return outstr
 
