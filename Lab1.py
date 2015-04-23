@@ -3,6 +3,7 @@
 #  IS-105 LAB1
 
 import sys
+import psutil
 
 # Group members: 
 gruppe = {  'student1': 'Andreas Kjærner-Semb', 
@@ -83,6 +84,7 @@ def printSysInfo():
 	psutil.cpu_percent(interval=3)
 	psutil.cpu_count()
 	psutil.disk_usage('/')
+	psutil.virtual_memory()
 
 # Tests
 def test():
