@@ -119,6 +119,6 @@ def test():
 	assert unicodeBin('å') == '11000011 10100101 '
 	assert unicodeBin('a') == '01100001'
 	
-	return "Testene er fullført uten feil."
+	return "The tests are completed successfully"
 
 print test()
