@@ -48,11 +48,15 @@ def bitOr(x, y):
 	return i
 
 #  Exercise 5
+# Takes a letter and returns its representation in the
+# ascii table as a binary number.
 def ascii8Bin(letter):
 	i = ord(letter)
     	return '{0:08b}'.format(i) 
 
 #  Exercise 6
+# Takes a word and returns the letters representation in
+# the ascii table as binary numbers.
 def transferBin(string):
 
 	l = list(string)
@@ -60,6 +64,8 @@ def transferBin(string):
 		ascii8Bin(c) 
 
 #  Exercise 7
+# Takes a string and returns the letters representation
+# in the ascii table as hexadecimal numbers.
 def transferHex(string):
 	
 	outstr = ""
@@ -72,6 +78,9 @@ def transferHex(string):
     return outstr
 
 # Exercise 8
+# Takes a letter and returns its representation in the
+# operating system, and not from the ascii table.
+# This works with unicode characters.
 def unicodeBin(character):
 
     outstr = ""
