@@ -14,8 +14,8 @@ gruppe = {	'student1': 'Andreas Kjærner-Semb',
 }
 
 #  Exercise 1
-# Print out a bird in ascii.
 def ascii_fugl():
+	"""Print out a bird in ascii."""
 	print"#       \/"
 	print"#       \/_"
 	print"#  \,   /( ,/"
@@ -27,38 +27,42 @@ def ascii_fugl():
 ascii_fugl()
 
 #  Exercise 2
-# Takes two numbers and returns in which position they both
-# have 1 in a binary number.
 def bitAnd(x, y): 
+	"""Takes two numbers and returns in which position they 
+	both have 1 in a binary number.
+	"""
 	i = (x & y)
 	return i
 
 #  Exercise 3
-# Takes two numbers and returns in which position only one
-# of them have 1 and the other 0.
 def bitXor(x, y):
+	"""Takes two numbers and returns in which position 
+	only one of them have 1 and the other 0.
+	"""
 	i = x ^ y
 	return i
 
 #  Exercise 4
-# Takes two numbers and returns in wich position only one
-# or both have 1 in a binary number.
 def bitOr(x, y):
+	"""Takes two numbers and returns in wich position 
+	only one or both have 1 in a binary number.
+	"""
 	i = x | y
 	return i
 
 #  Exercise 5
-# Takes a letter and returns its representation in the
-# ascii table as a binary number.
 def ascii8Bin(letter):
+	"""Takes a letter and returns its representation in 
+	the ascii table as a binary number.
+	"""
 	i = ord(letter)
 	return '{0:08b}'.format(i) 
 
 #  Exercise 6
-# Takes a word and returns the letters representation in
-# the ascii table as binary numbers.
 def transferBin(string):
-
+	"""Takes a word and returns the letters representation
+	in the ascii table as binary numbers.
+	"""
 	l = list(string)
 	outstr = ""
 	for c in l:
@@ -66,10 +70,10 @@ def transferBin(string):
 	return outstr
 
 #  Exercise 7
-# Takes a string and returns the letters representation
-# in the ascii table as hexadecimal numbers.
 def transferHex(string):
-	
+	"""Takes a string and returns the letters representation
+	in the ascii table as hexadecimal numbers.
+	"""
 	outstr = ""
 	
 	words_in_list = list(string)
@@ -80,11 +84,11 @@ def transferHex(string):
 	return outstr
 
 # Exercise 8
-# Takes a letter and returns its representation in the
-# operating system, and not from the ascii table.
-# This works with unicode characters.
 def unicodeBin(character):
-
+	"""Takes a letter and returns its representation in the
+	operating system, and not from the ascii table.
+	This works with unicode characters.
+	"""
 	outstr = ""
 	unicode_char = bytearray(character)
 	
