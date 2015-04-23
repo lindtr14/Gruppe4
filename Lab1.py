@@ -97,8 +97,6 @@ def unicodeBin(character):
 
 # Exercise 9
 def printSysInfo():
-	psutil.cpu_percent(interval=3)
-	psutil.cpu_count()
 	psutil.disk_usage('/')
 	psutil.virtual_memory()
 
@@ -110,6 +108,7 @@ def test():
 	assert ascii8Bin('a') == '01100001'
 	assert ascii8Bin('A') == '01000001'
 
+	assert transferBin('hei') == ''
 	assert transferHex('hei') == '68 65 69 '
 	assert unicodeBin('å') == '11000011 10100101 '
 	assert unicodeBin('a') == '01100001'
