@@ -7,22 +7,22 @@ import psutil
 
 # Group members: 
 gruppe = {  'student1': 'Andreas Kjærner-Semb', 
-            'student2': 'Linda Tran', \
-            'student3': 'Frank William Hansen', \
-            'student4': 'Ole Aarsnes', \
-            'student5': 'Mikael Kile', \
+			'student2': 'Linda Tran', \
+			'student3': 'Frank William Hansen', \
+			'student4': 'Ole Aarsnes', \
+			'student5': 'Mikael Kile', \
 }
 
 #  Exercise 1
 # Print out a bird in ascii.
 def ascii_fugl():
-    print"#       \/"
-    print"#       \/_"
-    print"#  \,   /( ,/"
-    print"#   \\\\\\' ///"
-    print"#    \_ /_/"
-    print"#    (./"
-    print"#     '`"
+	print"#       \/"
+	print"#       \/_"
+	print"#  \,   /( ,/"
+	print"#   \\\\\\' ///"
+	print"#    \_ /_/"
+	print"#    (./"
+	print"#     '`"
 
 ascii_fugl()
 
@@ -31,7 +31,7 @@ ascii_fugl()
 # have 1 in a binary number.
 def bitAnd(x, y): 
 	i = (x & y)
-    	return i
+	return i
 
 #  Exercise 3
 # Takes two numbers and returns in which position only one
@@ -52,7 +52,7 @@ def bitOr(x, y):
 # ascii table as a binary number.
 def ascii8Bin(letter):
 	i = ord(letter)
-    	return '{0:08b}'.format(i) 
+	return '{0:08b}'.format(i) 
 
 #  Exercise 6
 # Takes a word and returns the letters representation in
@@ -71,13 +71,13 @@ def transferBin(string):
 def transferHex(string):
 	
 	outstr = ""
-    
-    words_in_list = list(string)
-    for character in words_in_list:
-        representation = ord(character)
-        outstr += '{0:02x} '.format(representation)
-        
-    return outstr
+	
+	words_in_list = list(string)
+	for character in words_in_list:
+		representation = ord(character)
+		outstr += '{0:02x} '.format(representation)
+		
+	return outstr
 
 # Exercise 8
 # Takes a letter and returns its representation in the
@@ -85,17 +85,17 @@ def transferHex(string):
 # This works with unicode characters.
 def unicodeBin(character):
 
-    outstr = ""
-    unicode_char = bytearray(character)
-    
-    if len(unicode_char) > 1:
-        for char in bytearray(unicode_char):
-            outstr += "{0:08b} ".format(char)
-    
-    else:
-        outstr = "{0:08b}".format(ord(character))
-    
-    return outstr
+	outstr = ""
+	unicode_char = bytearray(character)
+	
+	if len(unicode_char) > 1:
+		for char in bytearray(unicode_char):
+			outstr += "{0:08b} ".format(char)
+	
+	else:
+		outstr = "{0:08b}".format(ord(character))
+	
+	return outstr
 
 # Exercise 9
 def printSysInfo():
