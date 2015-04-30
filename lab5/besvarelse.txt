@@ -37,6 +37,7 @@ Husk å kjøre steg 1 og 2 fra oppgave 2 før man kjører “bin = struct.unpack
 
 a.
 ‘B’ betyr Binary
+‘B’ betyr Unsigned character av type integer
 
 b.
 f.read(1)  leser en og en byte og returnerer første byte som hexadesimal, deretter flytter head seg ett hakk bortover, og den leser så de neste bytes i filsignaturen.
@@ -114,7 +115,6 @@ Etter å ha kjørt punkt 3 andre gangen fikk vi: “E”
 j.
 Den gikk fra hex til ASCII tegn, det er den måten bash terminalen viser det som output. Det tilsvarer 69 i desimaltall eller 45 i hexadesimaltall. Innholdet til bin vil endre seg fra hver gang punkt 3 kjøres
 
-
 Oppgave 5
 Siden vi importerer struct kan vi bruke denne modulen til å hente ut ELF spesifikasjoner. Dette har vi gjort tidligere i oppgaven med blant annet “unpack”
 
@@ -142,9 +142,6 @@ Andreas: 5346, 5457, 5459
 
 Den viser alle python filer som er åpne, det vil si du får først opp PID (feks 5346). hvis man så kjører $ lsof -p 5346 gitt at det er PID, prosessorID, så vil den vise deg alle filene i tilknytning prosessen som er åpne. Hvis man bruker $ ls -l /proc/5346/fd får du opp hvor den åpne filen ligger lagret.
 
-
-
-
 Oppgave 9
 
 fd står for File Descriptor. Det er en abstrakt indikator for å tilgang på en fil. Hver prosess har sine egne file descriptor strukturer. Prosessene kan ikke gå direkte og lese og skrive til en fil, men må gå via kjernen som vil hente ut filen på vegne av prosessen.
@@ -163,5 +160,6 @@ Et OS burde kunne forstå hvilken fil den behandler. Altså hvis den behandler J
 
 b.
 Første steg blir å lese av filen. Om man leser byte for byte, vil første byte vise hex 7f som tilsvarer ELF fil. 
+
 
 
