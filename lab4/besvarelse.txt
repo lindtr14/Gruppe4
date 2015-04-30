@@ -1,0 +1,299 @@
+Lab 4 - Poker
+
+Denne besvarelsen er delt inn i to deler. Første del vil inneholde våre løsninger og hvordan vi trodde hver funksjon skulle utføres. Del to vil inneholde kode fra Udacity, men med vår kode for å vise at vi har forstått koden. Koden vil ligge på GitHub, mens kommentarer og refleksjon vil være på dette dokumentet
+
+Del 1 - våre ideer og pseduo-kode
+
+def flush(hand):
+
+Må trekke ut kun suits, altså tegn (ikke tall)
+Se om alle suits er av lik type (D diamond, C club, H heart, S space)
+ulike bokstaver for hver
+For hver rank og suit in hånd:
+ta hånd og sjekk om alle er like
+Hvis alle du finner er like, så har du flush.
+kan bruke set funksjon
+hvis utfallet er lik 5 så er alle like.
+obs: må ha noe å sammenlikne med.
+4 lister som har lik suit i alle 5 kortene.
+
+def straight(ranks)
+
+ranks = [14, 13, 12, 11, 10]
+
+def sammenlikn(hand):
+    a = range(hand[0], (hand[0] - 5), -1)
+
+    if a == hand:
+        return True
+    else:
+        return False
+    
+print sammenlikn(ranks)
+
+
+def kind(n, ranks)
+
+Hvor mange ganger finner man samme verdi gjenntatt i listen (hånd)?
+fk [9, 9, 9, 9, 7]
+n altså, må altså legge selv inn hvor mange kort den skal ha like av, feks 4
+hvor mange er det av tallet 9? 4.
+den må vise kun 3 like hvis du vil ha 3 like, og ikke 2 like
+Hvis den har 4 like må den returnere det tallet den har fire like av.
+count funksjon for å finne ut hvor mange ganger x er i listen
+if setning, hvis hånden har tallet 9 fire ganger i listen så returner tallet 9
+else, hvis ikke returner null
+
+a = [1,1,1,1,2,2,2,2,3,3,4,5,5]
+from itertools import groupby
+[len(list(group)) for key, group in groupby(a)]
+
+Output:
+[4, 4, 2, 1, 2]
+
+hånd = [2, 2, 2, 1, 1]
+
+output:
+[3, 2]
+
+ranks = [1, 1, 2, 2, 2]
+
+def kind(n, ranks):
+    for card in ranks:
+        a = ranks.count(card)
+        if a == n:
+            return card
+
+print kind(3, ranks)
+
+her er løsning på python-tutor
+
+def two_pair:
+
+[8, 6, 6, 5, 5]
+
+Kort som er like med to forskjellige verdier
+Lese ranken for å finne ut hvilket par som er størst.
+De høyeste verdiene til venstre
+Kan du bruke kind funksjonen?
+n = 2
+første gang vil vi få det største paret
+den vil finne par i 6 først
+returnerer 6
+(Finner to kort som er like)x2
+utelate det kortet som allerede har blitt brukt
+for eksempel kortet 6 først
+neste gang metoden kjøres ignoreres den verdien.
+Sjekk verdi på hvert kort, hvis verdi repeteres, send inn godkjenning. Gjenta prosessen, men lag exception for originalverdi.
+Hvis du trekker ut alle kortene etter hverandre (for løkke)
+etter du har kjørt kind funksjonen en gang.
+da kan du vite hvilket kort du ikke skal se etter
+
+(ikke fungerende kode)
+def two_pair(ranks):
+    forstePar = kind(2, ranks)
+    andrePar = kind(2, ranks)
+    tupleHand = (forstePar, andrePar)
+    return tupleHand
+
+card_rank():
+
+rankMapping = (("2", 2),
+               ("3", 3),
+               ("4", 4),
+               ("5", 5),
+               ("6", 6),
+               ("7", 7),
+               ("8", 8),
+               ("9", 9),
+               ("T", 10),
+               ("J", 11),
+               ("Q", 12),
+               ("K", 13),
+               ("A", 14))
+               
+cards = ['AS', '4S', '5C', '2D']
+
+def card_rank(cards):
+    cardList = []
+    ranks = [r for r,s in cards]
+    ranks.sort(reverse=True)
+    for suit, number in rankMapping:
+        for card in ranks:
+            #   Hvordan sjekke verdien til en string (lavere enn 10)?
+            if card == suit:
+                cardList.append(number)
+    cardList.sort(reverse=True)
+    return cardList
+                
+                
+print card_rank(cards)
+
+problemet med koden er at den kun printer ut de tallene som enten er 10 eller mer.
+Dette ble fikset med å utvide rankMapping til å inkludere alle kortene fra 2 til ess.
+
+def deal():
+
+n = 5 # fem kort
+deck = liste over hele kortstokken. 2-A, SHDC
+numhands = hvor mange spillere
+
+random.shuffle brukes for å stokke kort i en tilfeldig rekkefølge
+
+Deretter del ut kort avhengig hvor mange spillere det er satt inn
+
+#  hvert kort skal inneholde r+s. Hvor man henter r i “23456789TJQKA” og s i “SHDC” 
+mydeck =[r+s for r in “23456789TJQKA” for s in “SHDC”]
+
+deal(numhands, n=5, deck=mydeck)
+
+random.shuffle(deck)
+
+return # returner deler av listen deck avhengig av hvor mange numhands som er angitt
+
+def poker(hands):
+
+# returner den hånden som har høyest rank
+# Kjører hand_rank på hver hand og returner den høyeste
+
+return max(hands, key=hand_rank)
+
+def hand_rank():
+
+# Sjekke en hånd for hvilken rank den har
+# Begynner fra toppen og sjekker først om den finner straight flush.
+# Deretter 4 like, fullt hus, straight, flush, 3 like, 2 par, 1 par, høyest kort
+
+If Straight + flush (8):
+straight:
+sjekk om høyeste kort minus laveste kort er 4
+sjekk om det er fem ulike kortverdier
+
+flush: sjekk om alle kortene har samme symbol (if len(symbol)=1, woohoo)
+
+if highcard = 14 and symbol = S
+return royal straight flush
+
+elif 4 like:
+sjekk om en hånd har 4 like verdier i en hånd
+
+elif fullt hus: elif 3 like + 2 like (som ikke er de samme som 3 like)
+
+elif straight: straight
+
+elif flush: flush
+
+elif 3 like:
+sjekk om en hånd har 3 like verdier i en hånd
+
+elif 2 par: 2 like + 2 like
+
+elif 1 par:
+sjekk om en hånd har 2 like verdier i en hånd
+
+else: Høyeste kort (rank 0 + tuple av kort-serien)
+
+def maxval()
+
+the function that maps the function to itself
+returner en liste alle hender som er like til "max of the iterable"
+maksimum av iterable
+maksverdien av iterable
+
+Del 2 - Udacity kode med våre kommentarer:
+
+def poker(hands):
+Takes all the hands made by the deal function. The hands comes as a list of lists (hands). Then every hand will be sorted and given a rank (hand_rank) in turn, one after the other. The allmax function will then find wich one is the highest ranking hand or hands if there is a tie.
+  
+def hand_rank(hand):
+makes straight with ace valued to one possible.
+is straight if 5 different ranks, and the highest rank is 4 higher than lowest rank
+(a neat way of checking for 5 consecutive ranks)
+is flush if there is only one suit in the set of suits
+ 
+def group(items):
+Takes a list of items and returns a list of "counts" of items and the list itself
+Goes through set(items) and returns pairs of the "count" and set and sorts them in reversed order so that the highest comes first
+    
+def unzip(pairs): 
+Converts a list of pairs into a pair of lists 
+  
+def card_ranks(hand):
+Takes a hand, pulls out a ranking of each hands, sorts them so the highest number is first and return them.
+Return a list of  the ranks, sorted with the higher first.
+Reverse the rank. Because we usually associate highest number (8) with the best cards.
+ 
+If ranks is equal to ace low/high straight, it will return a fix, this is the only time returning 1 as a value
+Makes ace to be one instead of fourteen. 
+If any other ranks, return as it.
+
+def kind(n, ranks):
+n is the input for what kind of rank «kind» we want to find. 2 for two of a kind (1pair), 
+3 for three of a kind, 4 for four of a kind
+ranks will be our hand or the list of card we got
+  
+this for expression will check in our ranks/list if it can count how many r are alike, depending on what number we defined in n
+if we said n = 3, the for expression will try to find if it can find 3 r’s that are the same. 
+If it is, it will return that r value. If not it will return none
+count is a method in lists
+    
+def two_pair(ranks):
+Finding two cards that has the same value. Give them the name "pair". 
+This will pick out the highest pair first
+Finding two cards that has the same value, but in a reversed list. 
+Since its reversed, this will pick out the lowest pair
+Checking if pair and lowpair is NOT the same
+If the "if" is true, then return their values
+Else return None
+  
+def allmax(iterable, key=(lambda x: x)):
+Compares all the hands in a list of lists (hands) and finds the one
+with the maximum value or rank. If there is a tie, both hands will
+be returned.
+The key=(lambda x: x) means that key(x) will take the next hand in 
+the loop and assign it to the variable xval. Lambda does the same as a
+function, only it takes less space and return a value without any
+return statement. The first x is the paramenter.
+
+The result will be a list of hands, initially empty. The maxval will
+be the maximum value in the iterable, initially none.
+
+For each hand in iterable, apply the lambda key to x and put it in
+xval
+
+If there is no result (the first time in the loop), then make
+result have the value of that hand in a list. Or if xval (current
+hand), is greater than the value of maxval (the best hand), make
+maxval to be the value of xval (a new best hand)
+
+If the value of xval (the next hand) is equal to the maxval (the
+best hand), then append that hand to the result variable. This
+means that result will now have at least two identical hands in its
+list of hands
+
+Return the result, which could be a list of one hand, or more if
+there is a tie
+import random  
+importing the module random to help us pick out random cards from the deck
+import random
+
+
+def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
+numhands are the input. You insert how many players/hands you want in game
+n=5 will be how many cards each player/hand will have
+deck=[r+s for r in '23456789TJQKA' for s in ‘SHDC'] is defining our deck as a list to have cards with r’s and s’s. 
+Every card is a combination with one r and one s
+
+This method is picked out from our random module
+It shuffles our deck in a random order
+  
+returns a hand for a player. The hands consists of 5 cards that are randomly picked out of the shuffled deck.
+Since n is 5, and i is 0, we put those numbers instead of the characters and get
+deck[5*0:n*(0+1)]
+deck[0:5]
+This will pick out the first five cards in our deck 
+If we have more than one player we move on to the next player
+and our program will do the same mathematic expression, but this time i = 1 and not i = 0
+The line will stop when we have reached the number of players as defined in numhands
+
+
