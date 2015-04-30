@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from socket import *
-import re
 
-
+    
 def romanAddition(x, y):
     """Function to perform addition with two roman numerals"""
     
@@ -134,22 +133,6 @@ def romanSubtraction(x, y):
     
     return tmp12
     
-def test():
-    assert toRoman(5) == 'V'
-    assert fromRoman('C') == 100
-    assert additionRoman('C', 'C') == 'CC'
-    assert subtractionRoman('L', 'X') == 'XL'
-    assert multiplicationRoman('IX', 'IX') == 'LXXXI'
-    assert romanAddition('CCXXXIV', 'CLXXIII') == 'CDVII'
-    assert romanSubtraction('LXXXVII', 'XXXVI') == 'LI'
-    
-    return "The tests are completed successfully"
-    
-#print test()
-
-# Sources
-# Mark Pilgrim, 8th August 2001, retrieved January 2015 from
-# http://docutils.sourceforge.net/docutils/utils/roman.py
 
 
 serverPort = 12000
