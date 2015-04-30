@@ -1,0 +1,45 @@
+Lab 3 - Sockets
+
+1)
+Vi har studert kapittelet
+
+2)
+Koden og .py-filene ligger på GitHub
+
+3) 
+Endring fra stor til liten bokstav har den sammenhengen at:
+feks Y =	01011001
+og    y =	01111001
+
+Plass nummer 5 (1/0*2^5) skrus på når den skal vise liten bokstav og er av når den skal representere stor bokstav.
+Med andre ord legges det til 32 i desimaltallverdi når man går fra stor bokstav til liten bokstav.
+
+4)
+Hvis du sender for eksempel ‘å’, får du kun liten ‘å’ tilbake. Dette er fordi unicode karakterer representeres med flere enn én byte.
+På samme måte som Y og y, vil Å og å vil ha en forskjellig binær verdi. 
+Å = 	11000011 10000101
+å = 	11000011 10100101
+
+Den nye koden i applikasjonen er nå endret for å kunne overføre fra UNICODE. Se GitHub for endringer
+
+5)
+Den nye koden til applikasjonen ligger på GitHub under navnet “UDPServerNy.py”
+MERK: Kun ASCII
+
+6)
+Den nye koden til applikasjonen ligger på GitHub under mappen /lab3/oppgave6
+Funksjonen sjekker om den skal utføre en “oversettelse” eller et mattestykke med romerske tall. MERK: Kun pluss eller minus
+
+7) 
+Vi ville ha brukt TCP protokollen fordi dette ville vært mer sikkert når det gjelder å sende pakkene. Vi er opptatt at pakkene kommer frem. Ved UDP som ofte blir brukt ved videostreaming, risikerer man ofte at man ikke får pakkene, eller at de kommer i feil rekkefølge. Siden vår funksjon ikke er videostreaming eller lignende, så foretrekker vi sikker overføring av pakker ved hjelp av TCP. 
+Eksempel: hvis funksjonen skal utføre et mattestykke, er vi interessert å få frem svaret uansett om det kommer på første forsøk eller tredje. Vi har nytte av at det kommer frem, og det gir ingen mening at pakke skal kastet om den ikke kommer frem på første forsøk. 
+
+Kilder
+
+Computer Networking - A Top Down Approach 6th edition
+
+https://docs.python.org/2/
+
+http://www.cyberciti.biz/faq/key-differences-between-tcp-and-udp-protocols/
+
+
