@@ -14,7 +14,7 @@ gruppe = {	'student1': 'Andreas Kjærner-Semb',
 }
 
 #  Exercise 1
-def ascii_fugl():
+def ascii_bird():
 	"""Print out a bird in ascii."""
 	print"#       \/"
 	print"#       \/_"
@@ -24,7 +24,7 @@ def ascii_fugl():
 	print"#    (./"
 	print"#     '`"
 
-ascii_fugl()
+ascii_bird()
 
 #  Exercise 2
 def bitAnd(x, y): 
