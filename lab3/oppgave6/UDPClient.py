@@ -55,4 +55,4 @@ while looping:
 		modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
 		print modifiedMessage
 	else:
-        clientSocket.close()
+		clientSocket.close()
