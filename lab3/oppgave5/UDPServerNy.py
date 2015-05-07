@@ -41,6 +41,18 @@ def test():
 
 print test()
 
+
+def get_binary(number):
+	return format(number, 'b').zfill(8)
+
+def set_bit(v, index, x):
+	"""Set the index:th bit of v to x, and return the new value."""
+	mask = 1 << index
+	v &= ~mask
+	if x:
+		v |= mask
+	return v
+
 loop = True
 
 while loop:
@@ -52,9 +64,6 @@ while loop:
 
 while 1:
     message, clientAddress = serverSocket.recvfrom(2048)
-    binary = unicodeBin(message)
-    newBinary = binaryChange(binary)
-    newText = fromBinaryToText(newBinary)
-    modifiedMessage = message.decode('utf-8').upper()
-    unicodeModifiedMessage = modifiedMessage.encode('utf-8')
-    serverSocket.sendto(newText, clientAddress)
+    changed_bin = set_bit(ord(message), 5, 0)	# Gjør om på binærtallet, stor bokstav
+    uppercase = chr(changed_bin)	# Gjør om til ascii
+    serverSocket.sendto(uppercase, clientAddress)
