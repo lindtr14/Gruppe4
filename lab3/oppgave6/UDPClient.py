@@ -9,7 +9,13 @@ print "2: Mathematic expression with roman numerals"
 alternative = raw_input("> ")
 
 if alternative == "1":
-	message = raw_input("Insert the lowercase character: ")
+	writing = True
+	while writing:
+		message = raw_input("Insert the lowercase character: ")
+		if message.isalpha():
+			writing = False
+		else:
+			print "Please insert a letter"
 	operator = ""
 	roman_number_2 = ""
 else:
