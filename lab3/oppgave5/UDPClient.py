@@ -15,8 +15,8 @@ if modifiedConnectionMessage == "Yes":
 	print "Connection valid"
 	message  = raw_input('Input lowercase ascii letter:')
 	clientSocket.sendto(message,(serverName, serverPort))
-	message, serverAddress = clientSocket.recvfrom(2048)
+	uppercase, serverAddress = clientSocket.recvfrom(2048)
 
-	print modifiedMessage
+	print uppercase
 else:
 	clientSocket.close()
