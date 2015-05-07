@@ -20,11 +20,11 @@ while looping:
 	if alternative == "1":
 		writing = True
 		while writing:
-			message = raw_input("Insert the lowercase character: ")
-			if message.isalpha():
+			message = raw_input("Insert the lowercase letter: ")
+			if message.isalpha() and message.islower():
 				writing = False
 			else:
-				print "Please insert a letter"
+				print "Please insert a lowercase letter"
 		operator = ""
 		roman_number_2 = ""
 	elif alternative == "2":
