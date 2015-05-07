@@ -12,7 +12,7 @@ sending = True
 while looping:
 
 	print "Choose your function:"
-	print "1: Make lowercase to uppercase"
+	print "1: Make ascii lowercase letter to ascii uppercase letter"
 	print "2: Mathematic expression with roman numerals"
 	print "q: Press q to quit"
 	
@@ -21,11 +21,11 @@ while looping:
 	if alternative == "1":
 		writing = True
 		while writing:
-			message = raw_input("Insert the lowercase letter: ")
+			message = raw_input("Insert ascii lowercase letter: ")
 			if message.isalpha() and message.islower():
 				writing = False
 			else:
-				print "Please insert a lowercase letter"
+				print "Please insert an ascii lowercase letter"
 		operator = ""
 		roman_number_2 = ""
 	elif alternative == "2":
@@ -38,7 +38,7 @@ while looping:
 				print "Please insert a valid operator"
 		writing = True
 		while writing:
-			message = raw_input("Insert the first roman number > ")
+			message = raw_input("Insert the first roman numeral > ")
 			if message.isalpha() and message.isupper():
 				writing = False
 			else:
@@ -46,7 +46,7 @@ while looping:
 	
 		writing2 = True
 		while writing2:
-			roman_number_2 = raw_input("Insert the second roman number > ")
+			roman_number_2 = raw_input("Insert the second roman numeral > ")
 			if roman_number_2.isalpha() and roman_number_2.isupper():
 				writing2 = False
 			else:
