@@ -8,13 +8,13 @@ serverSocket = socket(AF_INET, SOCK_DGRAM)
 serverSocket.bind(('', serverPort))
 print "The server is ready to recieve"
 
-def unicodeBin(character):
+def asciiBin(character):
 
     outstr = ""
-    unicode_char = bytearray(character)
+    ascii_char = bytearray(character)
     
-    if len(unicode_char) > 1:
-        for char in bytearray(unicode_char):
+    if len(ascii_char) > 1:
+        for char in bytearray(ascii_char):
             outstr += "{0:08b} ".format(char)
     
     else:
@@ -33,7 +33,7 @@ def fromBinaryToText(newBinary):
 	return chr(int(newBinary, 2))
 
 def test():
-	assert unicodeBin("a") == "01100001"
+	assert asciiBin("a") == "01100001"
 	assert binaryChange("01100001") == "01000001"
 	assert fromBinaryToText("01000001") == "A"
 
