@@ -13,7 +13,7 @@ modifiedConnectionMessage, serverAddress = clientSocket.recvfrom(2048)
 
 if modifiedConnectionMessage == "Yes":
 	print "Connection valid"
-	message  = raw_input('Input lowercase letter:')
+	message  = raw_input('Input lowercase ascii letter:')
 	clientSocket.sendto(message,(serverName, serverPort))
 	message, serverAddress = clientSocket.recvfrom(2048)
 
