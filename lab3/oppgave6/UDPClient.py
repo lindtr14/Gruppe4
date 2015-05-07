@@ -19,9 +19,22 @@ if alternative == "1":
 	operator = ""
 	roman_number_2 = ""
 else:
-	message = raw_input("Insert the first roman number > ")
-	operator = raw_input("Insert + for addition or - for subtraction > ")
-	roman_number_2 = raw_input("Insert the second roman number > ")
+	writing = True
+    operator = raw_input("Insert + for addition or - for subtraction > ")
+    while writing:
+        message = raw_input("Insert the first roman number > ")
+        if message.isalpha() and message.isupper():
+            writing = False
+        else:
+            print "Please insert an uppercase roman numeral"
+
+    writing2 = True
+    while writing2:
+        roman_number_2 = raw_input("Insert the second roman number > ")
+        if roman_number_2.isalpha() and roman_number_2.isupper():
+            writing2 = False
+        else:
+            print "Please insert an uppercase roman numeral"
 
 serverName = '127.0.0.1'
 serverPort = 12000
