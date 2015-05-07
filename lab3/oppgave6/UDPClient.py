@@ -37,22 +37,22 @@ while looping:
 			else:
 				print "Please insert an uppercase roman numeral"
 	
-	    writing2 = True
-	    while writing2:
-	        roman_number_2 = raw_input("Insert the second roman number > ")
-	        if roman_number_2.isalpha() and roman_number_2.isupper():
-	            writing2 = False
-	        else:
-	            print "Please insert an uppercase roman numeral"
-    elif alternative == "q":
-	    looping = False
-	    sending = False
+		writing2 = True
+		while writing2:
+			roman_number_2 = raw_input("Insert the second roman number > ")
+			if roman_number_2.isalpha() and roman_number_2.isupper():
+				writing2 = False
+			else:
+				print "Please insert an uppercase roman numeral"
+	elif alternative == "q":
+		looping = False
+		sending = False
 	
-    if sending:
+	if sending:
 		clientSocket.sendto(message ,(serverName, serverPort))
 		clientSocket.sendto(operator ,(serverName, serverPort))
 		clientSocket.sendto(roman_number_2 ,(serverName, serverPort))
 		modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
 		print modifiedMessage
-    else:
+	else:
         clientSocket.close()
