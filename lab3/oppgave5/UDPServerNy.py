@@ -41,6 +41,14 @@ def test():
 
 print test()
 
+loop = True
+
+while loop:
+    connectionMessage, clientAddress = serverSocket.recvfrom(2048)
+    if connectionMessage == "Is connection valid?":
+        positiveMessage = "Yes"
+        serverSocket.sendto(positiveMessage, clientAddress)
+
 
 while 1:
     message, clientAddress = serverSocket.recvfrom(2048)
@@ -50,4 +58,3 @@ while 1:
     modifiedMessage = message.decode('utf-8').upper()
     unicodeModifiedMessage = modifiedMessage.encode('utf-8')
     serverSocket.sendto(newText, clientAddress)
-    
