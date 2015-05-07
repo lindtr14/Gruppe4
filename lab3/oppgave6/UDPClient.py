@@ -28,8 +28,14 @@ while looping:
 		operator = ""
 		roman_number_2 = ""
 	elif alternative == "2":
+		operating = True
+		while operating:
+			operator = raw_input("Insert + for addition or - for subtraction > ")
+			if operator == "+" or operator == "-":
+				operating = False
+			else:
+				print "Please insert a valid operator"
 		writing = True
-		operator = raw_input("Insert + for addition or - for subtraction > ")
 		while writing:
 			message = raw_input("Insert the first roman number > ")
 			if message.isalpha() and message.isupper():
