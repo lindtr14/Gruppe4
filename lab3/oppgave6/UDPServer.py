@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 
+# This module acts like the server that
+# recieves a message from the client. Depending on
+# what kind of message it is, it will perform
+# the chosen function. It then sends the reply
+# to the client
+
 # Remember to have download roman.py in your directory
 from socket import *
 import roman
-
-    
 
 serverPort = 12000
 
