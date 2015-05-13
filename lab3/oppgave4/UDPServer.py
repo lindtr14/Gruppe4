@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+# This module acts like the server that
+# recieves a message from the client and
+# processes it from lowercase to uppercase. 
+# It can also handle unicode letters. 
+# It then sends the uppercase version to the client
+
 from socket import *
 
 serverPort = 12000
