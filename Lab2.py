@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+# This module contains various functions with different purposes.
+# In this module you can do operations with roman numeral. Either 
+# translation from decimal to roman or backwards and math expressions 
+# with roman numerals.
+
+
 # Loads the regular expressions module
 import re
 
@@ -212,6 +218,3 @@ def test():
     
 print test()
 
-# Sources
-# Mark Pilgrim, 8th August 2001, retrieved January 2015 from
-# http://docutils.sourceforge.net/docutils/utils/roman.py
