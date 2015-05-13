@@ -1,3 +1,10 @@
+
+# This module acts like the server that
+# recieves a message from the client and
+# processes it from lowercase to uppercase.
+# It then sends the uppercase version to the client
+
+
 from socket import *
 
 serverPort = 12000
