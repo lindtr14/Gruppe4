@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 # This module acts like a client that
-# first pop up a menu. Depending on what the client chose
+# first pops up a menu. Depending on what the client chose
 # the module will continue with the function that has been
 # chosen. The function can be a translation from lowercase
 # to uppercase, math expression with roman numerals, or quit
-# the module
+# the module. It then sends the message to the server. 
+# When it recieve a reply, it prints it
 
 from socket import *
 
