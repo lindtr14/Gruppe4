@@ -2,6 +2,11 @@
 
 #  IS-105 LAB1
 
+# This module contains various functions with different purposes.
+# In this module you can perform bitwise operations, 
+# binary operations on both ascii and unicode characters and return the state
+# of the machine through python
+
 import sys
 import psutil
 
