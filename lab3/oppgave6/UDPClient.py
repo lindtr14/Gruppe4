@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+# This module acts like a client that
+# first pop up a menu. Depending on what the client chose
+# the module will continue with the function that has been
+# chosen. The function can be a translation from lowercase
+# to uppercase, math expression with roman numerals, or quit
+# the module
+
 from socket import *
 
 serverName = '127.0.0.1'
