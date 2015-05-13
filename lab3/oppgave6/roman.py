@@ -128,4 +128,6 @@ def romanSubtraction(x, y):
     
     return tmp12
     
-
+# Sources
+# romanAddition and romanSubtraction is written in cooperation
+# with Lars Martin Risdal's group
