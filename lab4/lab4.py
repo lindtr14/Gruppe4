@@ -123,17 +123,17 @@ def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
   return [deck[n*i:n*(i+1)] for i in range(numhands)]
   
   
-  def test():
-    assert card_ranks(['AS', '4S', '5C', '2D', 'KH']) == [14, 13, 5, 4, 2]
-    assert allmax([['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
-                   ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
-                   ['5D', 'KC', 'JS', '9S', '8H']]) == [['7D', '2S', 'AC', '8D', '4H']]
-    assert poker([['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
-                   ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
-                   ['5D', 'KC', 'JS', '9S', '8H']]) == [['7C', '7H', 'KD', 'KS', '2D']]
-
-    
-    return "Test fullført"
+def test():
+	assert card_ranks(['AS', '4S', '5C', '2D', 'KH']) == [14, 13, 5, 4, 2]
+	assert allmax([['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
+	           ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
+	           ['5D', 'KC', 'JS', '9S', '8H']]) == [['7D', '2S', 'AC', '8D', '4H']]
+	assert poker([['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
+	           ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
+	           ['5D', 'KC', 'JS', '9S', '8H']]) == [['7C', '7H', 'KD', 'KS', '2D']]
+	
+	
+	return "Test fullført"
 
 print test()
 
