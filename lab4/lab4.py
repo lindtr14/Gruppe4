@@ -19,9 +19,8 @@ def hand_rank(hand):
   straight = len(ranks) == 5 and max(ranks)-min(ranks) == 4
   # is flush if there is only one suit in the set of suits
   flush = len(set([s for r, s in hand])) == 1
-  return max(count_rankings[counts], 4*straight + 5*flush), ranks
-  
   count_rankings = {(5,):10, (4,1):7, (3,2):6, (3,1,1):3, (2,2,1):2, (2,1,1,1):1, (1,1,1,1,1):0}
+  return max(count_rankings[counts], 4*straight + 5*flush), ranks
 
 def group(items): # Takes a list of items and returns a list of "counts" of items and the list itself
   groups = [(items.count(x), x) for x in set(items)] # Goes through set(items) and returns pairs of the "count" and set and sorts them in reversed order so that the highest comes first
@@ -122,3 +121,19 @@ def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
 # The line will stop when we have reached the number of players as defined in numhands
 
   return [deck[n*i:n*(i+1)] for i in range(numhands)]
+  
+  
+  def test():
+    assert card_ranks(['AS', '4S', '5C', '2D', 'KH']) == [14, 13, 5, 4, 2]
+    assert allmax([['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
+                   ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
+                   ['5D', 'KC', 'JS', '9S', '8H']]) == [['7D', '2S', 'AC', '8D', '4H']]
+    assert poker([['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
+                   ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
+                   ['5D', 'KC', 'JS', '9S', '8H']]) == [['7C', '7H', 'KD', 'KS', '2D']]
+
+    
+    return "Test fullført"
+
+print test()
+
