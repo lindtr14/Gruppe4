@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
 
 # This module represents a game of poker with players. 
-# 
+# It is possible to deal out cards to players. A hand consists of 
+# 5 cards. There will be ranking lists, so the system can compare hands
+# and pick out a winner
 
 def poker(hands):
+  """ Picks up the hands ingame and compare them to eachother. 
+      Returns the highest hand
+  """
   return allmax(hands, key=hand_rank)
   
 def hand_rank(hand):
+  """ Takes a hand and returns the highest rank representing
+      the hand
+  """
   groups = group(['--23456789TJQKA'.index(r) for r, s in hand])
   counts, ranks = unzip(groups)
 
@@ -20,12 +28,18 @@ def hand_rank(hand):
   return max(count_rankings[counts], 4*straight + 5*flush), ranks
 
 def group(items):
+  """ Takes a hand as decimal and returns the hand sorted by
+      counts
+  """
   groups = [(items.count(x), x) for x in set(items)] 
   return sorted(groups, reverse=True) 
   
-def unzip(pairs): return zip(*pairs)
+def unzip(pairs): 
+  """ Takes a list and returns it as two lists """
+  return zip(*pairs)
   
 def card_ranks(hand):
+  """ Takes a hand and returns it as decimal """
 
   ranks = ["--23456789TJQKA".index(r) for r,s in hand]
   ranks.sort(reverse=True)
@@ -33,12 +47,16 @@ def card_ranks(hand):
   return [5, 4, 3, 2, 1] if (ranks == [14, 5, 4, 3, 2]) else ranks
 
 def kind(n, ranks):
+  """ Takes a hand and check if it is any kind of 
+      kind-rank 
+  """
 
   for r in ranks:
     if ranks.count(r) == n: return r
   return None
     
 def two_pair(ranks):
+  """ Takes a hand and check if it has two pairs """
   pair = kind(2, ranks)
   
   lowpair = kind(2, list(reversed(ranks))) 
@@ -50,8 +68,8 @@ def two_pair(ranks):
   
 
 def allmax(iterable, key=(lambda x: x)):
-  """Compares all hands in a list of lists (hands) and finds the one with
-  the maximum value or rank. If there is a tie, both hands will be returned.
+  """ Compares all hands in a list of lists (hands) and finds the one with
+      the maximum value or rank. If there is a tie, both hands will be returned.
   """
   result, maxval = [], None
   for x in iterable:
@@ -65,8 +83,8 @@ def allmax(iterable, key=(lambda x: x)):
 import random
 
 def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
-  """Deals hands for players. Each hand consist of 5 cards that are randomly
-     picked out of the shuffeled deck. Numhands refer to number of hands.
+  """ Deals hands for players. Each hand consist of 5 cards that are randomly
+      picked out of the shuffeled deck. Numhands refer to number of hands.
   """
   random.shuffle(deck)
   return [deck[n*i:n*(i+1)] for i in range(numhands)]
