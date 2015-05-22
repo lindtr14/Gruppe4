@@ -130,11 +130,11 @@ def test():
 	test_hands = [['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
                       ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
                       ['5D', 'KC', 'JS', '9S', '8H']]
-        after_hand_rank = [(0, (12, 11, 10, 6, 5)), (0, (14, 8, 7, 4, 2)), (2, (13, 7, 2)), 
+        hand_values = [(0, (12, 11, 10, 6, 5)), (0, (14, 8, 7, 4, 2)), (2, (13, 7, 2)), 
     			   (1, (14, 8, 5, 4)), (0, (13, 11, 9, 8, 5))]
 	
 	assert card_ranks(['AS', '4S', '5C', '2D', 'KH']) == [14, 13, 5, 4, 2]
-	assert allmax(after_hand_rank) == [(2, (13, 7, 2))]
+	assert allmax(hand_values) == [(2, (13, 7, 2))]
   	assert allmax(test_hands, key=hand_rank) == [['7C', '7H', 'KD', 'KS', '2D']]
 	assert poker(test_hands) == [['7C', '7H', 'KD', 'KS', '2D']]
 	assert hand_rank(['7C', '7H', 'KD', 'KS', '2D']) == (2, (13, 7, 2))
