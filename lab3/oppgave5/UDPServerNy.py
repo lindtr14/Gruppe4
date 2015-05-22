@@ -47,6 +47,6 @@ while loop:
 
 while 1:
     message, clientAddress = serverSocket.recvfrom(2048)
-    changed_bin = set_bit(ord(message), 5, 0)   # Gjør om på binærtallet, stor bokstav
-    uppercase = chr(changed_bin)    # Gjør om til ascii
+    changed_bin = set_bit(ord(message), 5, 0)
+    uppercase = chr(changed_bin)
     serverSocket.sendto(uppercase, clientAddress)
