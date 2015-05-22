@@ -208,8 +208,6 @@ def romanSubtraction(x, y):
 def test():
     assert toRoman(5) == 'V'
     assert fromRoman('C') == 100
-    assert additionRoman('C', 'C') == 'CC'
-    assert subtractionRoman('L', 'X') == 'XL'
     assert multiplicationRoman('IX', 'IX') == 'LXXXI'
     assert romanAddition('CCXXXIV', 'CLXXIII') == 'CDVII'
     assert romanSubtraction('LXXXVII', 'XXXVI') == 'LI'
