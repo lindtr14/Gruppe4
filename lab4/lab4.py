@@ -66,44 +66,22 @@ def two_pair(ranks):
   else:
     return None # Else return None
   
-#   Compares all the hands in a list of lists (hands) and finds the one
-#   with the maximum value or rank. If there is a tie, both hands will
-#   be returned.
-#   The key=(lambda x: x) means that key(x) will take the next hand in 
-#   the loop and assign it to the variable xval. Lambda does the same as a
-#   function, only it takes less space and return a value without any
-#   return statement. The first x is the paramenter.
+
 def allmax(iterable, key=(lambda x: x)):
-  """The result will be a list of hands, initially empty. The maxval will
-  be the maximum value in the iterable, initially none."""
+  """Compares all hands in a list of lists (hands) and finds the one with
+  the maximum value or rank. If there is a tie, both hands will be returned.
+  """
   result, maxval = [], None
-  """For each hand in iterable, apply the lambda key to x and put it in
-  xval."""
   for x in iterable:
     xval = key(x)
-    """ If there is no result (the first time in the loop), then make
-    result have the value of that hand in a list. Or if xval (current
-    hand), is greater than the value of maxval (the best hand), make
-    maxval to be the value of xval (a new best hand)."""
     if not result or xval > maxval:
       result, maxval = [x], xval
-      """ If the value of xval (the next hand) is equal to the maxval (the
-      best hand), then append that hand to the result variable. This
-      means that result will now have at least two identical hands in its
-      list of hands."""
     elif xval == maxval:
       result.append(x)
-  """ Return the result, which could be a list of one hand, or more if
-  there is a tie."""
   return result 
   
 # importing the module random to help us pick out random cards from the deck
 import random
-
-# numhands are the input. You insert how many players/hands you want in game
-# n=5 will be how many cards each player/hand will have
-# deck=[r+s for r in '23456789TJQKA' for s in ‘SHDC'] is defining our deck as a list to have cards with r’s and s’s. 
-# Every card is a combination with one r and one s
 
 def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
   """Deals hands for players. Each hand consist of 5 cards that are randomly
