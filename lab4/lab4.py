@@ -131,7 +131,7 @@ def test():
 	assert poker([['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
 	           ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
 	           ['5D', 'KC', 'JS', '9S', '8H']]) == [['7C', '7H', 'KD', 'KS', '2D']]
-	
+	assert hand_rank(['7C', '7H', 'KD', 'KS', '2D']) == (2, (13, 7, 2))
 	
 	return "Test fullført"
 
