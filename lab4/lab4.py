@@ -143,6 +143,7 @@ def test():
 	assert kind(3, a) == 2
 	assert kind(4, a) == None
 	assert two_pair(b) == (2, 3)
+	assert unzip([(3, 2), (1, 5), (1, 3)]) == [(3, 1, 1), (2, 5, 3)]
 	
 	return "The test was a success"
 
