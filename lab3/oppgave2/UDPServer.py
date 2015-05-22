@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 # This module acts like the server that
 # recieves a message from the client and
