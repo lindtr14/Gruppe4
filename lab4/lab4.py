@@ -106,20 +106,10 @@ import random
 # Every card is a combination with one r and one s
 
 def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
-  
-# This method is picked out from our random module
-# It shuffles our deck in a random order
+  """Deals hands for players. Each hand consist of 5 cards that are randomly
+     picked out of the shuffeled deck. Numhands refer to number of hands.
+  """
   random.shuffle(deck)
-  
-# returns a hand for a player. The hands consists of 5 cards that are randomly picked out of the shuffled deck.
-# Since n is 5, and i is 0, we put those numbers instead of the characters and get
-# deck[5*0:n*(0+1)]
-# deck[0:5]
-# This will pick out the first five cards in our deck 
-# If we have more than one player we move on to the next player
-# and our program will do the same mathematic expression, but this time i = 1 and not i = 0
-# The line will stop when we have reached the number of players as defined in numhands
-
   return [deck[n*i:n*(i+1)] for i in range(numhands)]
   
   
