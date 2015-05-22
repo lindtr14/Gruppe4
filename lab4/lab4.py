@@ -84,8 +84,7 @@ def allmax(iterable, key=(lambda x: x)):
   
 import random
 
-def deal(numhands, n=5, 
-          deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
+def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
   """ Deals hands for players. Each hand consist of 5 cards 
       that are randomly picked out of the shuffeled deck. 
       Numhands refer to number of hands.
