@@ -144,6 +144,7 @@ def test():
 	assert kind(4, a) == None
 	assert two_pair(b) == (2, 3)
 	assert unzip([(3, 2), (1, 5), (1, 3)]) == [(3, 1, 1), (2, 5, 3)]
+	assert group([2, 14, 5, 12, 5]) == [(2, 5), (1, 14), (1, 12), (1, 2)]
 	
 	return "The test was a success"
 
