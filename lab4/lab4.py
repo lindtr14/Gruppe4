@@ -108,7 +108,7 @@ def test():
                 (0, (13, 11, 9, 8, 5))]
 	
 	assert card_ranks(['AS', '4S', '5C', '2D', 'KH']) == 
-	                  [14, 13, 5, 4, 2]
+			  [14, 13, 5, 4, 2]
 	assert allmax(hand_values) == [(2, (13, 7, 2))]
   	assert allmax(test_hands, key=hand_rank) == 
   	                [['7C', '7H', 'KD', 'KS', '2D']]
