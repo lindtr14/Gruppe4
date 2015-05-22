@@ -125,9 +125,8 @@ def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
   
 def test():
 	assert card_ranks(['AS', '4S', '5C', '2D', 'KH']) == [14, 13, 5, 4, 2]
-	assert allmax([['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
-	           ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
-	           ['5D', 'KC', 'JS', '9S', '8H']]) == [['7D', '2S', 'AC', '8D', '4H']]
+	assert allmax([(0, (12, 11, 10, 6, 5)), (0, (14, 8, 7, 4, 2)), (2, (13, 7, 2)), 
+                 (1, (14, 8, 5, 4)), (0, (13, 11, 9, 8, 5))]) == [(2, (13, 7, 2))]
 	assert poker([['6S', 'JD', 'TD', 'QS', '5H'], ['7D', '2S', 'AC', '8D', '4H'],
 	           ['7C', '7H', 'KD', 'KS', '2D'], ['5S', '8C', 'AD', 'AS', '4D'], 
 	           ['5D', 'KC', 'JS', '9S', '8H']]) == [['7C', '7H', 'KD', 'KS', '2D']]
