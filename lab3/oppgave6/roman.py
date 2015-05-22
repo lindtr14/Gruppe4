@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 def romanAddition(x, y):
     """Function to perform addition with two roman numerals"""
     
