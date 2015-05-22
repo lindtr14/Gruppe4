@@ -206,7 +206,7 @@ def romanSubtraction(x, y):
     return tmp12
     
 def test():
-    assert assert toRoman(5) == 'V'
+    assert toRoman(5) == 'V'
     assert fromRoman('C') == 100
     assert additionRoman('C', 'C') == 'CC'
     assert subtractionRoman('L', 'X') == 'XL'
