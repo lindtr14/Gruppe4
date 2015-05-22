@@ -82,18 +82,18 @@ def allmax(iterable, key=(lambda x: x)):
   xval."""
   for x in iterable:
     xval = key(x)
-  """ If there is no result (the first time in the loop), then make
-  result have the value of that hand in a list. Or if xval (current
-  hand), is greater than the value of maxval (the best hand), make
-  maxval to be the value of xval (a new best hand)."""
-  if not result or xval > maxval:
-    result, maxval = [x], xval
-  """ If the value of xval (the next hand) is equal to the maxval (the
-  best hand), then append that hand to the result variable. This
-  means that result will now have at least two identical hands in its
-  list of hands."""
-  elif xval == maxval:
-    result.append(x)
+    """ If there is no result (the first time in the loop), then make
+    result have the value of that hand in a list. Or if xval (current
+    hand), is greater than the value of maxval (the best hand), make
+    maxval to be the value of xval (a new best hand)."""
+    if not result or xval > maxval:
+      result, maxval = [x], xval
+      """ If the value of xval (the next hand) is equal to the maxval (the
+      best hand), then append that hand to the result variable. This
+      means that result will now have at least two identical hands in its
+      list of hands."""
+    elif xval == maxval:
+      result.append(x)
   """ Return the result, which could be a list of one hand, or more if
   there is a tie."""
   return result 
