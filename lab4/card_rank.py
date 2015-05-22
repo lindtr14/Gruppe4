@@ -21,11 +21,15 @@ def card_rank(cards):
     ranks = [r for r,s in cards]
     for suit, number in rankMapping:
         for card in ranks:
-            #   Hvordan sjekke verdien til en string (lavere enn 10)?
             if card == suit:
                 cardList.append(number)
     cardList.sort(reverse=True)
     return cardList
-                
-                
+    
+    
+def test():
+    assert card_rank(['AS', '4S', '5C', '2D', 'KH']) == [14, 13, 5, 4, 2]
+    return "Test fullført"
 #print card_rank(cards)
+
+print test()
